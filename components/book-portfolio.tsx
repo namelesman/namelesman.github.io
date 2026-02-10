@@ -132,21 +132,21 @@ export default function BookPortfolio() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="bx bxl-github"></i>
+                <i className="bx bxl-github" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.instagram.com/thiago_sn_m/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="bx bxl-instagram-alt"></i>
+                <i className="bx bxl-instagram-alt" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.linkedin.com/in/thiago-medeiros-299b92140/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="bx bxl-linkedin"></i>
+                <i className="bx bxl-linkedin" aria-hidden="true"></i>
               </a>
             </div>
 
@@ -180,7 +180,7 @@ export default function BookPortfolio() {
             <div className="workeduc-box">
               <div className="workeduc-content">
                 <span className="year">
-                  <i className="bx bxs-calendar"></i>2021 - 2023
+                  <i className="bx bxs-calendar" aria-hidden="true"></i>2021 - 2023
                 </span>
                 <h3>Prefeitura de Jaboat&atilde;o dos Guararapes</h3>
                 <p>
@@ -191,7 +191,7 @@ export default function BookPortfolio() {
               </div>
               <div className="workeduc-content">
                 <span className="year">
-                  <i className="bx bxs-calendar"></i>2023 - 2024
+                  <i className="bx bxs-calendar" aria-hidden="true"></i>2023 - 2024
                 </span>
                 <h3>Desenvolvimento do My coffee</h3>
                 <p>
@@ -203,7 +203,7 @@ export default function BookPortfolio() {
             </div>
             <span className="number-page">1</span>
             <span className="nextprev-btn" data-page="turn-1">
-              <i className="bx bx-chevron-right"></i>
+              <i className="bx bx-chevron-right" aria-hidden="true"></i>
             </span>
           </div>
 
@@ -213,7 +213,7 @@ export default function BookPortfolio() {
             <div className="workeduc-box">
               <div className="workeduc-content">
                 <span className="year">
-                  <i className="bx bxs-calendar"></i>2021 - 2025
+                  <i className="bx bxs-calendar" aria-hidden="true"></i>2021 - 2025
                 </span>
                 <h3>Faculdade de Boa viagem</h3>
                 <p>
@@ -224,7 +224,7 @@ export default function BookPortfolio() {
               </div>
               <div className="workeduc-content">
                 <span className="year">
-                  <i className="bx bxs-calendar"></i>2023 - 2024
+                  <i className="bx bxs-calendar" aria-hidden="true"></i>2023 - 2024
                 </span>
                 <h3>Desenvolvimento Site agata diesel</h3>
                 <p>
@@ -236,7 +236,7 @@ export default function BookPortfolio() {
             </div>
             <span className="number-page">2</span>
             <span className="nextprev-btn back" data-page="turn-1">
-              <i className="bx bx-chevron-left"></i>
+              <i className="bx bx-chevron-left" aria-hidden="true"></i>
             </span>
           </div>
         </div>
@@ -248,7 +248,7 @@ export default function BookPortfolio() {
             <h1 className="tittle">My Services</h1>
             <div className="services-box">
               <div className="services-content">
-                <i className="bx bx-code-alt"></i>
+                <i className="bx bx-code-alt" aria-hidden="true"></i>
                 <h3>Desenvolvimento Web</h3>
                 <p>{"Farei um web site do jeito que voc\u00ea pedir"}</p>
                 <a href="#" className="btn">
@@ -258,7 +258,7 @@ export default function BookPortfolio() {
             </div>
             <span className="number-page">3</span>
             <span className="nextprev-btn" data-page="turn-2">
-              <i className="bx bx-chevron-right"></i>
+              <i className="bx bx-chevron-right" aria-hidden="true"></i>
             </span>
           </div>
 
@@ -270,25 +270,25 @@ export default function BookPortfolio() {
                 <h3>Front-End</h3>
                 <div className="content">
                   <span>
-                    <i className="bx bxl-html5"></i>HTML
+                    <i className="bx bxl-html5" aria-hidden="true"></i>HTML
                   </span>
                   <span>
-                    <i className="bx bxl-css3"></i>CSS
+                    <i className="bx bxl-css3" aria-hidden="true"></i>CSS
                   </span>
                   <span>
-                    <i className="bx bxl-javascript"></i>JS
+                    <i className="bx bxl-javascript" aria-hidden="true"></i>JS
                   </span>
                   <span>
-                    <i className="bx bxl-angular"></i>Angular
+                    <i className="bx bxl-angular" aria-hidden="true"></i>Angular
                   </span>
                   <span>
-                    <i className="bx bxl-react"></i>React
+                    <i className="bx bxl-react" aria-hidden="true"></i>React
                   </span>
                   <span>
-                    <i className="bx bxl-git"></i>Git
+                    <i className="bx bxl-git" aria-hidden="true"></i>Git
                   </span>
                   <span>
-                    <i className="bx bxl-github"></i>Github
+                    <i className="bx bxl-github" aria-hidden="true"></i>Github
                   </span>
                 </div>
               </div>
@@ -297,10 +297,10 @@ export default function BookPortfolio() {
                 <h3>Back-End</h3>
                 <div className="content">
                   <span>
-                    <i className="bx bxl-python"></i>Python
+                    <i className="bx bxl-python" aria-hidden="true"></i>Python
                   </span>
                   <span>
-                    <i className="bx bxl-nodejs"></i>Node
+                    <i className="bx bxl-nodejs" aria-hidden="true"></i>Node
                   </span>
                   <span>
                     <NestjsIcon />
@@ -313,14 +313,14 @@ export default function BookPortfolio() {
                 <h3>Cyber-Security</h3>
                 <div className="content">
                   <span>
-                    <i className="fa-brands fa-linux"></i>Linux
+                    <i className="fa-brands fa-linux" aria-hidden="true"></i>Linux
                   </span>
                 </div>
               </div>
             </div>
             <span className="number-page">4</span>
             <span className="nextprev-btn back" data-page="turn-2">
-              <i className="bx bx-chevron-left"></i>
+              <i className="bx bx-chevron-left" aria-hidden="true"></i>
             </span>
           </div>
         </div>
@@ -344,7 +344,7 @@ export default function BookPortfolio() {
                 <div className="info-tittle">
                   <h3>My Caffee</h3>
                   <a href="#">
-                    Live Preview<i className="bx bx-link-external"></i>
+                    Live Preview<i className="bx bx-link-external" aria-hidden="true"></i>
                   </a>
                 </div>
                 <p>Tech Used:</p>
@@ -375,7 +375,7 @@ export default function BookPortfolio() {
             </div>
             <span className="number-page">5</span>
             <span className="nextprev-btn" data-page="turn-3">
-              <i className="bx bx-chevron-right"></i>
+              <i className="bx bx-chevron-right" aria-hidden="true"></i>
             </span>
           </div>
 
@@ -411,11 +411,11 @@ export default function BookPortfolio() {
             </div>
             <span className="number-page">6</span>
             <span className="nextprev-btn back" data-page="turn-3">
-              <i className="bx bx-chevron-left"></i>
+              <i className="bx bx-chevron-left" aria-hidden="true"></i>
             </span>
             <a href="#" className="back-profile">
               <p>Profile</p>
-              <i className="bx bxs-user"></i>
+              <i className="bx bxs-user" aria-hidden="true"></i>
             </a>
           </div>
         </div>
