@@ -7,14 +7,6 @@ export function SkillsPage() {
           <h3>Front-End</h3>
           <div className="content">
             <span>
-              <i className="bx bxl-html5" />
-              HTML
-            </span>
-            <span>
-              <i className="bx bxl-css3" />
-              CSS
-            </span>
-            <span>
               <i className="bx bxl-javascript" />
               JS
             </span>
@@ -29,10 +21,6 @@ export function SkillsPage() {
             <span>
               <i className="bx bxl-git" />
               Git
-            </span>
-            <span>
-              <i className="bx bxl-github" />
-              Github
             </span>
           </div>
         </div>
