@@ -17,7 +17,7 @@ src="/Assets/image/gta-css-3d.jpg"
         <div className="info-box">
           <div className="info-tittle">
             <h3>GTA I CSS3D</h3>
-            <a href="#">
+            <a href="https://gtacss3d.netlify.app/">
               Live Preview
               <i className="https://gtacss3d.netlify.app/" />
             </a>
