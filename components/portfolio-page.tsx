@@ -16,10 +16,10 @@ export function PortfolioPage() {
         </div>
         <div className="info-box">
           <div className="info-tittle">
-            <h3>My Caffee</h3>
+            <h3>GTA I CSS 3D</h3>
             <a href="#">
               Live Preview
-              <i className="bx bx-link-external" />
+              <i className="https://gtacss3d.netlify.app/" />
             </a>
           </div>
           <p>Tech Used:</p>
