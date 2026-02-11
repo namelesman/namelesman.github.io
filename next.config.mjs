@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    remotePatterns: [],
+    domains: [],
+    unoptimized: true
+  }
+}
 
 export default nextConfig

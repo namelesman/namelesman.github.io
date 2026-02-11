@@ -7,7 +7,8 @@ export function PortfolioPage() {
       <div className="portfolio-box">
         <div className="img-box">
           <Image
-            src="Assets\image\112042026-f6378900-8b3e-11eb-84a4-e4a92f86678e.jpg"
+            src="/Assets/image/gta-css-3d.jpg"
+            alt="GTA I CSS3D"
             width={600}
             height={240}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
