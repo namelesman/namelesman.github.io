@@ -7,7 +7,7 @@ export function PortfolioPage() {
       <div className="portfolio-box">
         <div className="img-box">
           <Image
-            src="/Assets/image/gta-css-3d.jpg"
+src="/Assets/image/gta-css-3d.jpg"
             alt="GTA I CSS3D"
             width={600}
             height={240}
