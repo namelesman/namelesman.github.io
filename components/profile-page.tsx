@@ -9,6 +9,7 @@ export function ProfilePage() {
         width={180}
         height={180}
         priority
+        suppressHydrationWarning
       />
       <h1>Thiago Medeiros</h1>
       <h3>Dev Full stack</h3>

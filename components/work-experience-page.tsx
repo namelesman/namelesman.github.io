@@ -18,12 +18,12 @@ export function WorkExperiencePage() {
         <div className="workeduc-content">
           <span className="year">
             <i className="bx bxs-calendar" />
-            {"2023 - 2024"}
+            {"2024 - 2025"}
           </span>
-          <h3>{"Desenvolvimento do My coffee"}</h3>
+          <h3>{"Desenvolvedor full stack em hollow soft"}</h3>
           <p>
             {
-              "Projeto da faculdade em grupo, desenvolvemos um site interativo chamado meu café."
+              "Fiz um projeto de desenvolvimento de software para a empresa hollow soft, onde desenvolvi um sistema de gerenciamento de clientes e funcionários, utilizando React, Node.js e MongoDB."
             }
           </p>
         </div>

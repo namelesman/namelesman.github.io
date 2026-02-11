@@ -10,7 +10,7 @@ export function ParticlesBackground() {
         ;(window as any).particlesJS("particles-js", {
           particles: {
             number: { value: 99, density: { enable: true, value_area: 800 } },
-            color: { value: "#081b29" },
+            color: { value: "#ffffff" },
             shape: {
               type: "circle",
               stroke: { width: 0, color: "#000000" },

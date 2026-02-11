@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Poppins } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeToggle } from "@/components/theme-toggle"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -19,7 +21,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#081b29",
+  themeColor: "#ffffff",
 }
 
 export default function RootLayout({
@@ -28,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -40,7 +42,14 @@ export default function RootLayout({
           async
         />
       </head>
-      <body className={poppins.variable}>{children}</body>
+      <body className={poppins.variable}>
+        <ThemeProvider>
+          <div className="theme-toggle-page">
+            <ThemeToggle />
+          </div>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

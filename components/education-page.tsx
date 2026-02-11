@@ -20,10 +20,10 @@ export function EducationPage() {
             <i className="bx bxs-calendar" />
             {"2023 - 2024"}
           </span>
-          <h3>{"Desenvolvimento Site agata diesel"}</h3>
+          <h3>{"Curso de programação CS50 Harvard"}</h3>
           <p>
             {
-              "O meu projeto mais recente porém ainda estou à concluir, é um website que pretendo por ao ar com o objetico ed ajudar a empresa agata diesel a vender os seus produtos"
+              "Curso de programação CS50 Harvard, que me ensina a programar em Python, HTML, CSS, JavaScript, entre outros."
             }
           </p>
         </div>
