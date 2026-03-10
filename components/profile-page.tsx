@@ -49,8 +49,8 @@ export function ProfilePage() {
 
       <div className="btn-box">
         <a
-          href="/Currículo Thiago.pdf"
-          download="Currículo Thiago.pdf"
+          href="/public/Currículo Thiago.pdf"
+          download="/public/Currículo Thiago.pdf"
           target="_blank"
           className="btn"
         >
