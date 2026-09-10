@@ -1,6 +1,9 @@
 import Image from "next/image"
+import { useLanguage } from "./language-provider"
 
 export function ProfilePage() {
+  const { t } = useLanguage()
+
   return (
     <div className="profile-page">
       <Image
@@ -12,7 +15,7 @@ export function ProfilePage() {
         suppressHydrationWarning
       />
       <h1>Thiago Medeiros</h1>
-      <h3>Dev Full stack</h3>
+      <h3>{t("role")}</h3>
 
       <div className="social-media">
         <a
@@ -42,9 +45,7 @@ export function ProfilePage() {
       </div>
 
       <p>
-        {
-          "Olá, eu me chamo Thiago Medeiros, sou um desenvolvedor full-stack apaixonado por criar soluções web inovadoras e eficientes. Aproveitamos nossa ampla tecnologia e conhecimento de ferramentas para transformar ideias em aplicações práticas e de alta qualidade. Meu foco é construir experiências digitais intuitivas, seguras e escaláveis, sempre atento aos detalhes e às melhores práticas de desenvolvimento."
-        }
+        {t("intro")}
       </p>
 
       <div className="btn-box">
@@ -54,10 +55,10 @@ export function ProfilePage() {
           target="_blank"
           className="btn"
         >
-          Download CV
+          {t("downloadCv")}
         </a>
         <a href="#" className="btn contact-me" id="contact-me-btn">
-          Contact Me
+          {t("contactMe")}
         </a>
       </div>
     </div>

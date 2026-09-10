@@ -6,9 +6,13 @@ import { SkillsPage } from "./skills-page"
 import { PortfolioPage } from "./portfolio-page"
 import { ContactPage } from "./contact-page"
 import { BookInteractions } from "./book-interactions"
+import { BookInteractions } from "./book-interactions"
 import MatrixBackground from "./MatrixBackground"
+import { useLanguage } from "./language-provider"
 
 export function Portfolio() {
+  const { t } = useLanguage()
+
   return (
     <>
       <MatrixBackground />
@@ -57,7 +61,7 @@ export function Portfolio() {
                 <i className="bx bx-chevron-left" />
               </span>
               <a href="#" className="back-profile" id="back-profile">
-                <p>Profile</p>
+                <p>{t("profile")}</p>
                 <i className="bx bxs-user" />
               </a>
             </div>
