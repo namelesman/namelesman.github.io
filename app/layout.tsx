@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Poppins } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { CookieConsent } from "@/components/cookie-consent"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -48,6 +49,7 @@ export default function RootLayout({
             <ThemeToggle />
           </div>
           {children}
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>
