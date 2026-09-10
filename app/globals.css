@@ -11,38 +11,38 @@
 }
 
 :root {
-  color-scheme: light;
-  --bg-color: #081b29;
-  --main-color: #00abf0;
-  --text-color: #333;
-  --second-text-color: #555;
+  color-scheme: dark;
+  --bg-color: #000000;
+  --main-color: #00ff41;
+  --text-color: #fff;
+  --second-text-color: #ccc;
   --white-color: #fff;
-  --cover-color: linear-gradient(45deg, #00abf0, #006e9a);
-  --pages-color: #fff;
-  --border: 0.125rem solid #00abf0;
-  --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
-  --page-text-color: #333;
-  --page-second-text-color: #555;
+  --cover-color: linear-gradient(45deg, #00ff41, #008f11);
+  --pages-color: #111;
+  --border: 0.125rem solid #00ff41;
+  --box-shadow: 0 0 0.6rem rgba(0, 255, 65, 0.2);
+  --page-text-color: #fff;
+  --page-second-text-color: #ccc;
 }
 
 html.light {
-  --pages-color: #fff;
-  --page-text-color: #111;
-  --page-second-text-color: #333;
+  --pages-color: #111;
+  --page-text-color: #fff;
+  --page-second-text-color: #ccc;
 }
 
 html.light .book {
-  color: #111;
+  color: #fff;
 }
 
 html.light .book .book-page {
-  background: #fff;
+  background: #111;
 }
 
 html.light .book-page .page-front,
 html.light .book-page .page-back {
-  background: #fff;
-  color: #111;
+  background: #111;
+  color: #fff;
 }
 
 html.light .profile-page h1,
@@ -56,43 +56,44 @@ html.light .portfolio-box .info-box p,
 html.light .portfolio-box .info-box h3,
 html.light .contact-box,
 html.light .number-page {
-  color: #111;
+  color: #fff;
 }
 
 html.light .nextprev-btn {
-  color: #333;
+  color: #fff;
 }
 
 html.light .contact-box .field {
-  color: #111;
+  color: #fff;
+  background: #222;
 }
 
 html.light .contact-box .field::placeholder {
-  color: #555;
+  color: #ccc;
 }
 
 html.light .skills-content .content span {
-  background: #fff;
+  background: #111;
 }
 
 html.dark {
-  --pages-color: #fff;
-  --page-text-color: #333;
-  --page-second-text-color: #555;
+  --pages-color: #111;
+  --page-text-color: #fff;
+  --page-second-text-color: #ccc;
 }
 
 html.dark .book {
-  color: #333;
+  color: #fff;
 }
 
 html.dark .book .book-page {
-  background: #fff;
+  background: #111;
 }
 
 html.dark .book-page .page-front,
 html.dark .book-page .page-back {
-  background: #fff;
-  color: #333;
+  background: #111;
+  color: #fff;
 }
 
 html.dark .profile-page h1,
@@ -106,23 +107,24 @@ html.dark .portfolio-box .info-box p,
 html.dark .portfolio-box .info-box h3,
 html.dark .contact-box,
 html.dark .number-page {
-  color: #333;
+  color: #fff;
 }
 
 html.dark .nextprev-btn {
-  color: #333;
+  color: #fff;
 }
 
 html.dark .contact-box .field {
-  color: #333;
+  color: #fff;
+  background: #222;
 }
 
 html.dark .contact-box .field::placeholder {
-  color: #555;
+  color: #ccc;
 }
 
 html.dark .skills-content .content span {
-  background: #fff;
+  background: #111;
 }
 
 /* ---- particles.js container ---- */
@@ -245,8 +247,8 @@ html.light .theme-toggle-track {
 }
 
 .theme-toggle-track[data-checked="true"] {
-  background: rgba(0, 171, 240, 0.55);
-  border-color: rgba(0, 171, 240, 0.75);
+  background: rgba(0, 255, 65, 0.55);
+  border-color: rgba(0, 255, 65, 0.75);
 }
 
 .theme-toggle-thumb {
@@ -268,7 +270,7 @@ html.light .theme-toggle-track {
 
 .casing {
   width: 80rem;
-  height: 65rem;
+  height: 60rem;
   padding: 2rem;
   perspective: 250rem;
   animation: show-animate 2s forwards;
@@ -325,9 +327,9 @@ html.light .theme-toggle-track {
   position: absolute;
   width: 50%;
   height: 100%;
-  background: #fff !important;
-  box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #111 !important;
+  box-shadow: 0 0 0.6rem rgba(0, 255, 65, 0.25);
+  border: 1px solid rgba(0, 255, 65, 0.3);
   display: flex;
   padding: 2rem;
 }
@@ -442,9 +444,9 @@ html.light .theme-toggle-track {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fff !important;
+  background: #111 !important;
   padding: 1.5rem 2rem;
-  color: #333;
+  color: #fff;
 }
 
 .book-page .page-front {
@@ -661,30 +663,49 @@ html.light .theme-toggle-track {
 
 .contact-box {
   text-align: center;
+  margin-top: 2rem;
+}
+
+.contact-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 25rem;
+  margin: 0 auto;
 }
 
 .contact-box .field {
   width: 100%;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
   border: var(--border);
-  border-radius: 0.3rem;
-  padding: 0.8rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
   font-size: 1rem;
   color: var(--text-color);
-  margin-bottom: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-box .field:focus {
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
 .contact-box .field::placeholder {
   color: var(--text-color);
+  opacity: 0.7;
 }
 
 .contact-box textarea {
   resize: none;
-  height: 9rem; /* ACHATADO DE 15rem PARA 9rem */
+  height: 9rem;
 }
 
 .contact-box .btn {
   cursor: pointer;
+  width: 100%;
+  max-width: 15rem;
+  margin-top: 0.5rem;
 }
 
 .back-profile {
