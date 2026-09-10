@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useLanguage } from "./language-provider"
+import { playBeep } from "../lib/audio"
 
 export function CookieConsent() {
   const { t } = useLanguage()
@@ -20,11 +21,13 @@ export function CookieConsent() {
   }, [])
 
   const acceptCookies = () => {
+    playBeep()
     localStorage.setItem("cookieConsent", "true")
     setShowConsent(false)
   }
 
   const rejectCookies = () => {
+    playBeep()
     localStorage.setItem("cookieConsent", "false")
     setShowConsent(false)
   }

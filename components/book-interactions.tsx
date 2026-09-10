@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import { playPageTurn } from "../lib/audio"
 
 export function BookInteractions() {
   useEffect(() => {
@@ -14,6 +15,7 @@ export function BookInteractions() {
     // Page turn buttons
     pageTurnBtns.forEach((el, index) => {
       el.onclick = () => {
+        playPageTurn()
         const pageTurnId = el.getAttribute("data-page")
         if (!pageTurnId) return
         const pageTurn = document.getElementById(pageTurnId)
@@ -37,6 +39,7 @@ export function BookInteractions() {
     if (contactMeBtn) {
       contactMeBtn.onclick = (event) => {
         event.preventDefault()
+        playPageTurn()
         pages.forEach((page, index) => {
           setTimeout(() => {
             page.classList.add("turn")
@@ -62,6 +65,7 @@ export function BookInteractions() {
     if (backProfileBtn) {
       backProfileBtn.onclick = (e) => {
         e.preventDefault()
+        playPageTurn()
         pages.forEach((_, index) => {
           setTimeout(() => {
             reverseIndex()

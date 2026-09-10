@@ -2,6 +2,7 @@
 
 import { type FormEvent, useState } from "react"
 import { useLanguage } from "./language-provider"
+import { playKeystroke } from "../lib/audio"
 
 export function ContactPage() {
   const { t } = useLanguage()
@@ -59,6 +60,7 @@ export function ContactPage() {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            onKeyDown={() => playKeystroke()}
             disabled={status === "submitting"}
           />
           <input
@@ -69,6 +71,7 @@ export function ContactPage() {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={() => playKeystroke()}
             disabled={status === "submitting"}
           />
           <textarea
@@ -80,6 +83,7 @@ export function ContactPage() {
             name="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={() => playKeystroke()}
             disabled={status === "submitting"}
           />
           <input
