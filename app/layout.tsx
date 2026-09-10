@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Poppins } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { LanguageProvider } from "@/components/language-provider"
+import { LanguageToggle } from "@/components/language-toggle"
 import { CookieConsent } from "@/components/cookie-consent"
 import "./globals.css"
 
@@ -44,13 +44,11 @@ export default function RootLayout({
         />
       </head>
       <body className={poppins.variable}>
-        <ThemeProvider>
-          <div className="theme-toggle-page">
-            <ThemeToggle />
-          </div>
+        <LanguageProvider>
+          <LanguageToggle />
           {children}
           <CookieConsent />
-        </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   )

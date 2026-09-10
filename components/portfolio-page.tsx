@@ -1,9 +1,12 @@
 import Image from "next/image"
+import { useLanguage } from "./language-provider"
 
 export function PortfolioPage() {
+  const { t } = useLanguage()
+
   return (
     <>
-      <h1 className="tittle">Latest Project</h1>
+      <h1 className="tittle">{t("latestProject")}</h1>
       
       {/* --- PROJETO JARVIS (Destaque) --- */}
       <div className="portfolio-box" style={{ marginBottom: "40px" }}>
@@ -20,15 +23,13 @@ export function PortfolioPage() {
           <div className="info-tittle">
             <h3>Jarvis AI Assistant</h3>
             <a href="#">
-              Live Demo
+              {t("liveDemo")}
               <i className="bx bx-play-circle" />
             </a>
           </div>
-          <p>Tech Used: Python, LiveKit, Gemini Realtime API, Playwright</p>
+          <p>{t("techUsed")} Python, LiveKit, Gemini Realtime API, Playwright</p>
           <p>
-            {
-              "Assistente de IA pessoal com integração de voz em tempo real. Capaz de automatizar tarefas no Windows, gerenciar arquivos, controlar periféricos e navegar na web de forma autônoma via comandos de voz."
-            }
+            {t("project1Desc")}
           </p>
         </div>
         <div className="btn-box">
@@ -38,7 +39,7 @@ export function PortfolioPage() {
             rel="noopener noreferrer"
             className="btn"
           >
-            Source Code
+            {t("sourceCode")}
           </a>
         </div>
       </div>
@@ -58,15 +59,13 @@ export function PortfolioPage() {
           <div className="info-tittle">
             <h3>GTA I CSS3D</h3>
             <a href="https://gtacss3d.netlify.app/">
-              Live Preview
+              {t("livePreview")}
               <i className="bx bx-link-external" />
             </a>
           </div>
-          <p>Tech Used: HTML, SCSS, JavaScript</p>
+          <p>{t("techUsed")} HTML, SCSS, JavaScript</p>
           <p>
-            {
-              "Fiz esta demo só para ver o quanto o CSS 3D é poderoso, e acabei me empolgando... Também fiquei curioso para ver se CSS serve para fazer jogos (alerta de spoiler: não serve muito)."
-            }
+            {t("project2Desc")}
           </p>
         </div>
         <div className="btn-box">
@@ -76,7 +75,7 @@ export function PortfolioPage() {
             rel="noopener noreferrer"
             className="btn"
           >
-            Source Code
+            {t("sourceCode")}
           </a>
           <a
             href="https://github.com/namelesman"
@@ -84,7 +83,7 @@ export function PortfolioPage() {
             rel="noopener noreferrer"
             className="btn"
           >
-            More Projects
+            {t("moreProjects")}
           </a>
         </div>
       </div>

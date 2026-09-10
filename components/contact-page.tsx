@@ -1,8 +1,11 @@
 "use client"
 
 import { type FormEvent, useState } from "react"
+import { useLanguage } from "./language-provider"
+import { playKeystroke } from "../lib/audio"
 
 export function ContactPage() {
+  const { t } = useLanguage()
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
@@ -27,7 +30,7 @@ export function ContactPage() {
 
       if (!res.ok || !data.ok) {
         setStatus("error")
-        setErrorMessage(data.error || "Não foi possível enviar a mensagem")
+        setErrorMessage(data.error || t("errorMsg"))
         return
       }
 
@@ -37,47 +40,50 @@ export function ContactPage() {
       setMessage("")
     } catch {
       setStatus("error")
-      setErrorMessage("Não foi possível enviar a mensagem")
+      setErrorMessage(t("errorMsg"))
     }
   }
 
   const buttonText =
-    status === "submitting" ? "Sending..." : "Send Menssage"
+    status === "submitting" ? t("sending") : t("sendMsg")
 
   return (
     <>
-      <h1 className="tittle">{"Contact Me!"}</h1>
+      <h1 className="tittle">{t("contactTitle")}</h1>
       <div className="contact-box">
         <form onSubmit={onSubmit}>
           <input
             type="text"
             className="field"
-            placeholder="Full Name"
+            placeholder={t("fullName")}
             required
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            onKeyDown={() => playKeystroke()}
             disabled={status === "submitting"}
           />
           <input
             type="email"
             className="field"
-            placeholder="E-mail Address"
+            placeholder={t("emailAddr")}
             required
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={() => playKeystroke()}
             disabled={status === "submitting"}
           />
           <textarea
             cols={30}
             rows={10}
             className="field"
-            placeholder="Your Menssage"
+            placeholder={t("yourMsg")}
             required
             name="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={() => playKeystroke()}
             disabled={status === "submitting"}
           />
           <input
@@ -88,12 +94,12 @@ export function ContactPage() {
           />
           {status === "success" ? (
             <p style={{ marginTop: "1rem" }}>
-              Mensagem enviada com sucesso!
+              {t("successMsg")}
             </p>
           ) : null}
           {status === "error" ? (
             <p style={{ marginTop: "1rem" }}>
-              {errorMessage || "Erro ao enviar mensagem"}
+              {errorMessage || t("errorMsg")}
             </p>
           ) : null}
         </form>

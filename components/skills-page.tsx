@@ -1,12 +1,16 @@
+import { useLanguage } from "./language-provider"
+
 export function SkillsPage() {
+  const { t } = useLanguage()
+
   return (
     <div suppressHydrationWarning>
-      <h1 className="tittle">My Skills</h1>
+      <h1 className="tittle">{t("mySkills")}</h1>
       <div className="skill-box">
         
 {/* --- Front-End --- */}
         <div className="skills-content p-6 border rounded-xl shadow-sm">
-          <h3 className="text-2xl font-semibold mb-6">Front-End</h3>
+          <h3 className="text-2xl font-semibold mb-6">{t("frontend")}</h3>
           <div className="content grid grid-cols-2 sm:grid-cols-4 gap-4">
             <span className="flex flex-col items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className="w-16 h-16 mb-2">
@@ -54,7 +58,7 @@ export function SkillsPage() {
         </div>
 
 <div className="skills-content">
-          <h3>Inteligência Artificial (IA)</h3>
+          <h3>{t("ai")}</h3>
           <div className="content">
             <span>
               {/* Ícone oficial do TensorFlow */}
@@ -108,7 +112,7 @@ export function SkillsPage() {
 
         {/* --- Back-End --- */}
         <div className="skills-content p-6 border rounded-xl shadow-sm">
-          <h3 className="text-2xl font-semibold mb-6">Back-End</h3>
+          <h3 className="text-2xl font-semibold mb-6">{t("backend")}</h3>
           <div className="content grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             <span className="flex flex-col items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className="w-16 h-16 mb-2">
@@ -169,7 +173,7 @@ export function SkillsPage() {
 
         {/* --- Databases --- */}
         <div className="skills-content">
-          <h3>Databases</h3>
+          <h3>{t("database")}</h3>
           <div className="content">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
@@ -212,7 +216,7 @@ export function SkillsPage() {
 
 {/* --- Tools --- */}
         <div className="skills-content p-6 border rounded-xl shadow-sm">
-          <h3 className="text-2xl font-semibold mb-6">Tools</h3>
+          <h3 className="text-2xl font-semibold mb-6">{t("tools")}</h3>
           <div className="content grid grid-cols-3 gap-4">
             <span className="flex flex-col items-center">
               {/* Git */}
