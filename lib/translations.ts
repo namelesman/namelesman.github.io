@@ -77,6 +77,12 @@ export const translations = {
     alunobdDesc: "A simple Student CRUD system developed in native Java connected to a PostgreSQL database.",
     alunobdCuriosity: "It was an essential project to practically understand the connection between a desktop application made in Java and a relational database (PostgreSQL) using JDBC.",
 
+    // Project - VagasIA
+    vagasiaName: "VagasIA - AI Job Applier",
+    vagasiaTag: "Automation & AI",
+    vagasiaDesc: "An intelligent Python automation that uses Google Gemini Vision to read job posts from images, extracts data, generates personalized cover letters, and sends them via Gmail automatically.",
+    vagasiaCuriosity: "It detects whether the job requires Portuguese, English or Spanish and writes the cover letter and attaches the correct resume accordingly.",
+
     // Contact
     contactTitle: "Contact Me!",
     fullName: "Full Name",
@@ -171,6 +177,12 @@ export const translations = {
     alunobdTag: "Back-End",
     alunobdDesc: "Um sistema simples de CRUD de Alunos desenvolvido em Java nativo conectado a um banco de dados PostgreSQL.",
     alunobdCuriosity: "Foi um projeto essencial para entender na prática a conexão entre uma aplicação desktop feita em Java e um banco de dados relacional (PostgreSQL) utilizando o JDBC.",
+
+    // Project - VagasIA
+    vagasiaName: "VagasIA - Automação de Vagas",
+    vagasiaTag: "Automação & IA",
+    vagasiaDesc: "Uma automação inteligente em Python que usa o Google Gemini Vision para ler prints de vagas, extrai os dados, gera e-mails de candidatura personalizados e envia automaticamente.",
+    vagasiaCuriosity: "O robô detecta se a vaga é em Português, Inglês ou Espanhol, escreve a carta de apresentação no idioma certo e até anexa a versão correta do currículo!",
 
     // Contact
     contactTitle: "Contate-me!",
