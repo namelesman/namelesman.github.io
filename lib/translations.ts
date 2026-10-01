@@ -83,6 +83,12 @@ export const translations = {
     vagasiaDesc: "An intelligent Python automation that uses Google Gemini Vision to read job posts from images, extracts data, generates personalized cover letters, and sends them via Gmail automatically.",
     vagasiaCuriosity: "It detects whether the job requires Portuguese, English or Spanish and writes the cover letter and attaches the correct resume accordingly.",
 
+    // Project - Mapa Recife
+    mapaRecifeName: "Mapa Comercial Recife",
+    mapaRecifeTag: "Desktop App",
+    mapaRecifeDesc: "A native Windows desktop application built with CustomTkinter and TkinterMapView to display an interactive map of Recife, loaded with real-time POI data from OpenStreetMap.",
+    mapaRecifeCuriosity: "I built a smart caching system to store Overpass API results locally, allowing instantaneous loading for previously searched filters.",
+
     // Contact
     contactTitle: "Contact Me!",
     fullName: "Full Name",
@@ -183,6 +189,12 @@ export const translations = {
     vagasiaTag: "Automação & IA",
     vagasiaDesc: "Uma automação inteligente em Python que usa o Google Gemini Vision para ler prints de vagas, extrai os dados, gera e-mails de candidatura personalizados e envia automaticamente.",
     vagasiaCuriosity: "O robô detecta se a vaga é em Português, Inglês ou Espanhol, escreve a carta de apresentação no idioma certo e até anexa a versão correta do currículo!",
+
+    // Project - Mapa Recife
+    mapaRecifeName: "Mapa Comercial Recife",
+    mapaRecifeTag: "App Desktop",
+    mapaRecifeDesc: "Um aplicativo nativo para Windows feito em CustomTkinter que exibe um mapa interativo de Recife com pontos comerciais reais extraídos do OpenStreetMap em tempo real.",
+    mapaRecifeCuriosity: "Criei um sistema de cache inteligente local que salva os dados da Overpass API, permitindo que a busca funcione instantaneamente nas próximas execuções sem depender da internet.",
 
     // Contact
     contactTitle: "Contate-me!",
