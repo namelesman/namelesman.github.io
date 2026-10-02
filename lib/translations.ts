@@ -4,7 +4,7 @@ export const translations = {
   en: {
     // Profile
     role: "Full Stack Dev",
-    intro: "Hello, my name is Thiago Medeiros, I am a full-stack developer passionate about creating innovative and efficient web solutions. We leverage our broad technology and tool knowledge to transform ideas into practical, high-quality applications. My focus is on building intuitive, secure, and scalable digital experiences, always attentive to details and the best development practices.",
+    intro: "Hello, my name is Thiago Medeiros, I am a full-stack developer passionate about creating innovative and efficient web solutions. I leverage my broad knowledge of technologies and tools to transform ideas into practical, high-quality applications. My focus is on building intuitive, secure, and scalable digital experiences, always attentive to details and the best development practices.",
     downloadCv: "Download CV",
     contactMe: "Contact Me",
 
@@ -30,7 +30,7 @@ export const translations = {
     tools: "Tools",
 
     // Portfolio
-    latestProject: "Projetos",
+    latestProject: "Projects",
     liveDemo: "Live Demo",
     techUsed: "Tech Used:",
     project1Desc: "Personal AI assistant with real-time voice integration. Capable of automating tasks on Windows, managing files, controlling peripherals, and browsing the web autonomously via voice commands.",
@@ -111,7 +111,7 @@ export const translations = {
   pt: {
     // Profile
     role: "Dev Full stack",
-    intro: "Olá, eu me chamo Thiago Medeiros, sou um desenvolvedor full-stack apaixonado por criar soluções web inovadoras e eficientes. Aproveitamos nossa ampla tecnologia e conhecimento de ferramentas para transformar ideias em aplicações práticas e de alta qualidade. Meu foco é construir experiências digitais intuitivas, seguras e escaláveis, sempre atento aos detalhes e às melhores práticas de desenvolvimento.",
+    intro: "Olá, eu me chamo Thiago Medeiros, sou um desenvolvedor full-stack apaixonado por criar soluções web inovadoras e eficientes. Uso meu amplo conhecimento de tecnologias e ferramentas para transformar ideias em aplicações práticas e de alta qualidade. Meu foco é construir experiências digitais intuitivas, seguras e escaláveis, sempre atento aos detalhes e às melhores práticas de desenvolvimento.",
     downloadCv: "Baixar CV",
     contactMe: "Contate-me",
 
