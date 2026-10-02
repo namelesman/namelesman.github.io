@@ -13,7 +13,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://v0-namelesman-github-io.vercel.app"),
+  metadataBase: new URL("https://thiagodevs.com.br"),
   title: "Thiago Medeiros | Desenvolvedor Full Stack",
   description:
     "Portfólio de Thiago Medeiros - Desenvolvedor Full Stack focado em React, Next.js, Node.js e Java. Veja meus projetos e habilidades.",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://v0-namelesman-github-io.vercel.app",
+    url: "https://thiagodevs.com.br",
     title: "Thiago Medeiros | Dev Full Stack",
     description: "Conheça meus projetos, habilidades e trajetória como Desenvolvedor Full Stack.",
     siteName: "Portfólio Thiago Medeiros",
