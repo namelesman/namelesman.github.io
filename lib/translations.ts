@@ -16,7 +16,8 @@ export const translations = {
     job2Desc: "Software development project, creating a customer and employee management system using NestJS, React, Node.js, and MongoDB.",
     education: "Education",
     edu1Title: "Faculdade de Boa Viagem",
-    edu1Desc: "This is the college where I am pursuing my Bachelor's in Computer Science, currently in my fifth semester, looking for new experiences.",
+    edu1Desc: "This is the college where I am pursuing my Bachelor's in Computer Science, currently in my 7th semester, looking for new experiences.",
+    present: "Present",
     edu2Title: "CS50 Harvard Programming Course",
     edu2Desc: "CS50 Harvard programming course, teaching me to program in Python, HTML, CSS, JavaScript, among others.",
 
@@ -44,8 +45,8 @@ export const translations = {
     // Project - Jarvis
     jarvisName: "J.A.R.V.I.S AI Assistant",
     jarvisTag: "Featured",
-    jarvisDesc: "An intelligent personal assistant powered by the Gemini API capable of speaking, listening, processing files, taking screenshots, and answering questions in real-time.",
-    jarvisCuriosity: "I built this assistant combining the Google Calendar API and the Jarvis APIs that I also developed.",
+    jarvisDesc: "A real-time voice assistant powered by Gemini Realtime and LiveKit. It remembers facts across sessions (Mem0) and performs tasks on the PC: browsing and clicking through websites, searching the web, opening projects and creating files.",
+    jarvisCuriosity: "When you say goodbye, it saves a summary of the conversation and starts the next session remembering what you talked about. And if you say 'Radio Silence', it stops talking immediately.",
     
     // Project - GTA I
     gtaName: "GTA I CSS3D",
@@ -139,7 +140,8 @@ export const translations = {
     job2Desc: "Projeto de desenvolvimento de software, criando um sistema de gerenciamento de clientes e funcionários, utilizando nestjs, react, node.js e mongodb.",
     education: "Educação",
     edu1Title: "Faculdade de Boa viagem",
-    edu1Desc: "Essa é a faculdade onde eu faço o bacharelado de Ciência da computação, pelo qual estou no momento no quinto periodo, em busca de novas experiências.",
+    edu1Desc: "Essa é a faculdade onde faço o bacharelado em Ciência da Computação. Atualmente estou no 7º período, em busca de novas experiências.",
+    present: "Atual",
     edu2Title: "Curso de programação CS50 Harvard",
     edu2Desc: "Curso de programação CS50 Harvard, que me ensina a programar em Python, HTML, CSS, JavaScript, entre outros.",
 
@@ -167,8 +169,8 @@ export const translations = {
     // Project - Jarvis
     jarvisName: "J.A.R.V.I.S AI Assistant",
     jarvisTag: "Destaque",
-    jarvisDesc: "Um assistente pessoal inteligente feito com a API do Gemini capaz de falar, ouvir, processar arquivos, tirar prints e responder perguntas em tempo real.",
-    jarvisCuriosity: "Eu construí este assistente juntando as APIs de agenda do Google e as do Jarvis que eu fiz também.",
+    jarvisDesc: "Assistente por voz em tempo real com Gemini Realtime e LiveKit. Lembra de fatos entre sessões (Mem0) e executa tarefas no PC: navega e clica em sites, pesquisa na web, abre projetos e cria arquivos.",
+    jarvisCuriosity: "Ao se despedir, ele salva um resumo da conversa e começa a próxima sessão lembrando do que vocês falaram. E se você disser 'Silêncio Rádio', ele para de falar na hora.",
     
     // Project - GTA I
     gtaName: "GTA I CSS3D",

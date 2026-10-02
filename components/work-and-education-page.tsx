@@ -34,7 +34,7 @@ export function WorkAndEducationPage() {
         <div className="workeduc-content">
           <span className="year">
             <i className="bx bxs-calendar" />
-            {"2021 - 2025"}
+            {`2021 - ${t("present")}`}
           </span>
           <h3>{t("edu1Title")}</h3>
           <p>

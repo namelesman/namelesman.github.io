@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     curiosity: "jarvisCuriosity",
     repoName: "J.A.R.V.I.S-Frontend",
     icon: "🧠",
-    tech: ["Python"],
+    tech: ["Python", "Next", "TypeScript"],
   },
   {
     id: "maparecife",
