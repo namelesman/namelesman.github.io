@@ -106,7 +106,23 @@ export const translations = {
     accept: "Accept",
 
     // Portfolio wrapper
-    profile: "Profile"
+    profile: "Profile",
+
+    // Terminal
+    terminalOpen: "Open terminal (Ctrl+K)",
+    terminalPlaceholder: "Type a command or search...",
+    terminalEmpty: "command not found",
+    terminalNav: "Navigate",
+    terminalActions: "Actions",
+    terminalHint: "↑↓ navigate · ↵ run · esc close",
+    cmdProfile: "Profile & experience",
+    cmdSkills: "Skills & projects",
+    cmdContact: "Contact",
+    cmdLanguage: "Mudar para Português",
+    cmdGithub: "Open GitHub",
+    cmdLinkedin: "Open LinkedIn",
+    sudoHire: "Hire Thiago",
+    sudoGranted: "[sudo] permission granted. Opening contact form...",
   },
   pt: {
     // Profile
@@ -213,6 +229,22 @@ export const translations = {
     accept: "Aceitar",
 
     // Portfolio wrapper
-    profile: "Perfil"
+    profile: "Perfil",
+
+    // Terminal
+    terminalOpen: "Abrir terminal (Ctrl+K)",
+    terminalPlaceholder: "Digite um comando ou busque...",
+    terminalEmpty: "comando não encontrado",
+    terminalNav: "Navegar",
+    terminalActions: "Ações",
+    terminalHint: "↑↓ navegar · ↵ executar · esc fechar",
+    cmdProfile: "Perfil e experiência",
+    cmdSkills: "Habilidades e projetos",
+    cmdContact: "Contato",
+    cmdLanguage: "Switch to English",
+    cmdGithub: "Abrir GitHub",
+    cmdLinkedin: "Abrir LinkedIn",
+    sudoHire: "Contratar o Thiago",
+    sudoGranted: "[sudo] permissão concedida. Abrindo formulário de contato...",
   }
 };

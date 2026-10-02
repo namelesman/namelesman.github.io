@@ -6,6 +6,7 @@ import { SkillsPage } from "./skills-page"
 import { PortfolioPage } from "./portfolio-page"
 import { ContactPage } from "./contact-page"
 import { BookInteractions } from "./book-interactions"
+import { Terminal } from "./terminal"
 import MatrixBackground from "./MatrixBackground"
 import { useLanguage } from "./language-provider"
 
@@ -69,6 +70,7 @@ export function Portfolio() {
       </div>
 
       <BookInteractions />
+      <Terminal />
     </>
   )
 }

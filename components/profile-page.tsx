@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useLanguage } from "./language-provider"
+import { CV_DOWNLOAD_NAME, LINKS } from "@/lib/links"
 
 export function ProfilePage() {
   const { t } = useLanguage()
@@ -19,7 +20,7 @@ export function ProfilePage() {
 
       <div className="social-media">
         <a
-          href="https://github.com/namelesman"
+          href={LINKS.github}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -27,7 +28,7 @@ export function ProfilePage() {
           <i className="bx bxl-github" />
         </a>
         <a
-          href="https://www.instagram.com/thiago_sn_m/"
+          href={LINKS.instagram}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
@@ -35,7 +36,7 @@ export function ProfilePage() {
           <i className="bx bxl-instagram-alt" />
         </a>
         <a
-          href="https://www.linkedin.com/in/thiago-medeiros-299b92140/"
+          href={LINKS.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -50,8 +51,8 @@ export function ProfilePage() {
 
       <div className="btn-box">
         <a
-          href="/Currículo Thiago.pdf"
-          download="Currículo Thiago Medeiros.pdf"
+          href={LINKS.cv}
+          download={CV_DOWNLOAD_NAME}
           target="_blank"
           className="btn"
         >

@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { PROJECTS, GITHUB_USER, repoUrl } from "@/lib/projects";
 import { TechIcon } from "@/lib/tech-icons";
+import { OPEN_PROJECT_EVENT } from "@/lib/book";
 
 function ReadmeViewer({ repoName }: { repoName: string }) {
   const [content, setContent] = useState<string>("");
@@ -52,6 +53,17 @@ export function PortfolioPage() {
 
   useEffect(() => {
     setMounted(true);
+
+    const onOpenProject = (e: Event) => setSelectedProject((e as CustomEvent<string>).detail);
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !document.querySelector("[cmdk-dialog]")) setSelectedProject(null);
+    };
+    window.addEventListener(OPEN_PROJECT_EVENT, onOpenProject);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener(OPEN_PROJECT_EVENT, onOpenProject);
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, []);
 
   const activeProject = PROJECTS.find(p => p.id === selectedProject);
