@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+  Pac-Man de Thiago Medeiros (https://github.com/namelesman/Pacman-Game), embutido no
+  terminal do portfólio. Os scripts do jogo são os originais; este arquivo só adapta a
+  página para rodar dentro de um iframe (escala, controle por toque e Esc para sair).
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pac-Man</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      touch-action: none;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* O canvas é 500x500; escala para caber no iframe mantendo os pixels nítidos */
+    canvas {
+      width: min(100vw, 100vh);
+      height: min(100vw, 100vh);
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <div style="display:none;">
+    <img id="animation" src="animations.gif" width="140" height="20">
+    <img id="ghosts" src="ghost.png" width="140" height="20">
+  </div>
+  <script src="ghost.js"></script>
+  <script src="pacman.js"></script>
+  <script src="game.js"></script>
+  <script>
+    // Esc devolve o controle ao terminal do portfólio
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") window.parent.postMessage("pacman:exit", window.location.origin);
+      // Setas não devem rolar nada fora do jogo
+      if (event.key.startsWith("Arrow")) event.preventDefault();
+    });
+
+    // Controle por deslize no celular: usa as mesmas direções que o teclado
+    let touchStart = null;
+    window.addEventListener("touchstart", (event) => {
+      const t = event.touches[0];
+      touchStart = { x: t.clientX, y: t.clientY };
+    }, { passive: true });
+    window.addEventListener("touchend", (event) => {
+      if (!touchStart) return;
+      const t = event.changedTouches[0];
+      const dx = t.clientX - touchStart.x;
+      const dy = t.clientY - touchStart.y;
+      touchStart = null;
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 20) return;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        pacman.nextDirection = dx > 0 ? DIRECTION_RIGHT : DIRECTION_LEFT;
+      } else {
+        pacman.nextDirection = dy > 0 ? DIRECTION_BOTTOM : DIRECTION_UP;
+      }
+    });
+
+    window.focus();
+  </script>
+</body>
+</html>

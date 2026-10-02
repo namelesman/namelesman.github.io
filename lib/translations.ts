@@ -60,18 +60,6 @@ export const translations = {
     pacmanDesc: "A complete clone of the classic Pac-Man game, fully developed in JavaScript, HTML5 Canvas, and CSS.",
     pacmanCuriosity: "The ghost's AI algorithms (Blinky, Pinky, Inky, and Clyde) mimic the exact behavior of the original arcade game.",
 
-    // Project - Conra
-    conraName: "Conra ActiveWear",
-    conraTag: "E-Commerce",
-    conraDesc: "A responsive e-commerce web platform for sportswear, with an attractive UI/UX and complete cart functionalities.",
-    conraCuriosity: "The entire frontend architecture was designed to simulate a real, high-performance shopping environment.",
-
-    // Project - Agatha
-    agathaName: "Agatha Diesel",
-    agathaTag: "Landing Page",
-    agathaDesc: "An institutional website developed to strengthen online presence and present corporate information with an attractive design.",
-    agathaCuriosity: "My main focus here was image optimization and loading speed, ensuring that the sophisticated look wouldn't weigh down the response time for users.",
-
     // Project - AlunoBD
     alunobdName: "CRUD Java AlunoBD",
     alunobdTag: "Back-End",
@@ -125,6 +113,11 @@ export const translations = {
     cmdLinkedin: "Open LinkedIn",
     sudoHire: "Hire Thiago",
     sudoGranted: "[sudo] permission granted. Opening contact form...",
+
+    // Easter egg Pac-Man
+    cmdPacman: "Play Pac-Man",
+    pacmanRestart: "restart",
+    pacmanHint: "arrows/WASD or swipe · esc to exit",
 
     // Chat com IA
     cmdChat: "Ask the AI about Thiago",
@@ -197,18 +190,6 @@ export const translations = {
     pacmanDesc: "Um clone completo do clássico jogo Pac-Man, totalmente desenvolvido em JavaScript, HTML5 Canvas e CSS.",
     pacmanCuriosity: "Os algoritmos de IA dos fantasmas (Blinky, Pinky, Inky e Clyde) imitam exatamente o comportamento do jogo original de arcade.",
 
-    // Project - Conra
-    conraName: "Conra ActiveWear",
-    conraTag: "E-Commerce",
-    conraDesc: "Uma plataforma web responsiva de e-commerce para roupas esportivas, com uma UI/UX atraente e funcionalidades de carrinho completas.",
-    conraCuriosity: "Toda a arquitetura do frontend foi projetada para simular um ambiente de compras real e de alta performance.",
-
-    // Project - Agatha
-    agathaName: "Agatha Diesel",
-    agathaTag: "Landing Page",
-    agathaDesc: "Um site institucional desenvolvido para reforçar a presença online e apresentar informações corporativas com um design atraente.",
-    agathaCuriosity: "Meu maior foco aqui foi a otimização de imagens e velocidade de carregamento, garantindo que o visual sofisticado não pesasse no tempo de resposta para os usuários.",
-
     // Project - AlunoBD
     alunobdName: "CRUD Java AlunoBD",
     alunobdTag: "Back-End",
@@ -262,6 +243,11 @@ export const translations = {
     cmdLinkedin: "Abrir LinkedIn",
     sudoHire: "Contratar o Thiago",
     sudoGranted: "[sudo] permissão concedida. Abrindo formulário de contato...",
+
+    // Easter egg Pac-Man
+    cmdPacman: "Jogar Pac-Man",
+    pacmanRestart: "reiniciar",
+    pacmanHint: "setas/WASD ou deslize · esc sai",
 
     // Chat com IA
     cmdChat: "Pergunte à IA sobre o Thiago",

@@ -4,12 +4,15 @@ import { useEffect, useState } from "react"
 import { Command } from "cmdk"
 import { useLanguage } from "./language-provider"
 import { TerminalChat, useAiChat } from "./terminal-chat"
+import { TerminalPacman } from "./terminal-pacman"
 import { playBeep, playKeystroke } from "../lib/audio"
 import { goToSheet, isTypingTarget, openProject } from "../lib/book"
 import { CV_DOWNLOAD_NAME, LINKS } from "../lib/links"
 import { PROJECTS } from "../lib/projects"
 import { catContact, catEducation, catExperience, catSkills, listProjects, whoami } from "../lib/local-answers"
 import { translations } from "../lib/translations"
+
+const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"]
 
 function downloadCv() {
   const a = document.createElement("a")
@@ -23,9 +26,27 @@ export function Terminal() {
   const [open, setOpen] = useState(false)
   const [search, setSearch] = useState("")
   const [output, setOutput] = useState<string | null>(null)
-  const [mode, setMode] = useState<"commands" | "chat">("commands")
+  const [mode, setMode] = useState<"commands" | "chat" | "pacman">("commands")
   // Fica fora do diálogo para o histórico da conversa sobreviver ao fechar e reabrir
   const chat = useAiChat()
+
+  // Easter egg: código Konami abre o Pac-Man direto no terminal
+  useEffect(() => {
+    let progress = 0
+    function onKeyDown(e: KeyboardEvent) {
+      if (isTypingTarget(e.target)) return
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key
+      progress = key === KONAMI[progress] ? progress + 1 : key === KONAMI[0] ? 1 : 0
+      if (progress === KONAMI.length) {
+        progress = 0
+        playBeep()
+        setMode("pacman")
+        setOpen(true)
+      }
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [])
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -82,6 +103,7 @@ export function Terminal() {
 
   const query = search.trim()
   const showSudo = query.toLowerCase().startsWith("sudo")
+  const showGames = /^(play|pac|game|jog)/i.test(query)
 
   return (
     <>
@@ -100,16 +122,18 @@ export function Terminal() {
         onOpenChange={onOpenChange}
         label="Terminal"
         overlayClassName="terminal-overlay"
-        contentClassName="terminal-window"
+        contentClassName={`terminal-window${mode === "pacman" ? " terminal-window--game" : ""}`}
       >
         <div className="terminal-titlebar">
           <span className="terminal-dot" />
           <span className="terminal-dot" />
           <span className="terminal-dot" />
-          <span className="terminal-title">thiago@portfolio: ~</span>
+          <span className="terminal-title">thiago@portfolio: {mode === "pacman" ? "~/games/pacman" : "~"}</span>
         </div>
 
-        {mode === "chat" ? (
+        {mode === "pacman" ? (
+          <TerminalPacman onExit={() => setMode("commands")} />
+        ) : mode === "chat" ? (
           <TerminalChat {...chat} onBack={() => setMode("commands")} />
         ) : (
           <>
@@ -131,6 +155,15 @@ export function Terminal() {
               <p className="terminal-output">{output}</p>
             ) : (
               <Command.List>
+                {showGames && (
+                  <Command.Group heading="games">
+                    <Command.Item value="play pacman" onSelect={() => setMode("pacman")}>
+                      <code>play pacman</code>
+                      <span>{t("cmdPacman")}</span>
+                    </Command.Item>
+                  </Command.Group>
+                )}
+
                 {showSudo && (
                   <Command.Group heading="sudo">
                     <Command.Item value="sudo hire thiago" onSelect={hire}>
@@ -208,7 +241,7 @@ export function Terminal() {
                 </Command.Group>
 
                 {/* Qualquer texto que não seja comando vira uma pergunta para a IA */}
-                {query && !showSudo && (
+                {query && !showSudo && !showGames && (
                   <Command.Group heading="IA" forceMount>
                     <Command.Item value="__ask__" forceMount onSelect={() => startChat(query)}>
                       <code>ask &quot;{query}&quot;</code>
