@@ -1,115 +1,92 @@
 "use client"
 
 import { useEffect } from "react"
-import { playPageTurn } from "../lib/audio"
+import {
+  getSheetCount,
+  goToSheet,
+  isTypingTarget,
+  markBookReady,
+  nextSheet,
+  prevSheet,
+  sheetFromHash,
+  TURN_TRANSITION,
+} from "../lib/book"
 
 export function BookInteractions() {
   useEffect(() => {
-    const pageTurnBtns = document.querySelectorAll<HTMLElement>(".nextprev-btn")
-    const pages = document.querySelectorAll<HTMLElement>(".book-page.page-right")
-    const contactMeBtn = document.getElementById("contact-me-btn")
-    const backProfileBtn = document.getElementById("back-profile")
+    const pages = Array.from(document.querySelectorAll<HTMLElement>(".book-page.page-right"))
     const coverRight = document.getElementById("cover-right")
     const pageLeft = document.getElementById("page-left")
+    const timers: ReturnType<typeof setTimeout>[] = []
+    const later = (fn: () => void, ms: number) => timers.push(setTimeout(fn, ms))
 
-    // Page turn buttons
-    pageTurnBtns.forEach((el, index) => {
-      el.onclick = () => {
-        playPageTurn()
-        const pageTurnId = el.getAttribute("data-page")
-        if (!pageTurnId) return
-        const pageTurn = document.getElementById(pageTurnId)
-        if (!pageTurn) return
-
-        if (pageTurn.classList.contains("turn")) {
-          pageTurn.classList.remove("turn")
-          setTimeout(() => {
-            pageTurn.style.zIndex = String(20 - index)
-          }, 500)
-        } else {
-          pageTurn.classList.add("turn")
-          setTimeout(() => {
-            pageTurn.style.zIndex = String(20 + index)
-          }, 500)
-        }
-      }
+    // Botões de virar página: o da frente avança para a folha seguinte, o de trás volta para esta
+    document.querySelectorAll<HTMLElement>(".nextprev-btn").forEach((btn) => {
+      const sheet = pages.findIndex((page) => page.id === btn.dataset.page)
+      btn.onclick = () => goToSheet(btn.classList.contains("back") ? sheet : sheet + 1)
     })
 
-    // Contact me button
+    const contactMeBtn = document.getElementById("contact-me-btn")
     if (contactMeBtn) {
-      contactMeBtn.onclick = (event) => {
-        event.preventDefault()
-        playPageTurn()
-        pages.forEach((page, index) => {
-          setTimeout(() => {
-            page.classList.add("turn")
-            setTimeout(() => {
-              page.style.zIndex = String(20 + index)
-            }, 500)
-          }, (index + 1) * 200 + 100)
-        })
+      contactMeBtn.onclick = (e) => {
+        e.preventDefault()
+        goToSheet(getSheetCount())
       }
     }
 
-    // Back profile button
-    const totalPages = pages.length
-    let pageNumber = 0
-
-    function reverseIndex() {
-      pageNumber--
-      if (pageNumber < 0) {
-        pageNumber = totalPages - 1
-      }
-    }
-
+    const backProfileBtn = document.getElementById("back-profile")
     if (backProfileBtn) {
       backProfileBtn.onclick = (e) => {
         e.preventDefault()
-        playPageTurn()
-        pages.forEach((_, index) => {
-          setTimeout(() => {
-            reverseIndex()
-            pages[pageNumber].classList.remove("turn")
-            setTimeout(() => {
-              reverseIndex()
-              pages[pageNumber].style.zIndex = String(10 + index)
-            }, 500)
-          }, (index + 1) * 200 + 100)
-        })
+        goToSheet(0)
       }
     }
 
-    // Opening animation
-    const coverTimer = setTimeout(() => {
-      coverRight?.classList.add("turn")
-    }, 2100)
-
-    const coverZTimer = setTimeout(() => {
+    // Animação de abertura: a capa vira e as páginas (que começam viradas) voltam uma a uma
+    const OPEN_AT = 2100
+    later(() => coverRight?.classList.add("turn"), OPEN_AT)
+    later(() => {
       if (coverRight) coverRight.style.zIndex = "-1"
-    }, 2800)
-
-    const pageLeftTimer = setTimeout(() => {
+    }, OPEN_AT + 700)
+    later(() => {
       if (pageLeft) pageLeft.style.zIndex = "20"
-    }, 3200)
+    }, OPEN_AT + 1100)
 
-    const pageTimers: ReturnType<typeof setTimeout>[] = []
-    pages.forEach((_, index) => {
-      const timer = setTimeout(() => {
-        reverseIndex()
-        pages[pageNumber].classList.remove("turn")
-        setTimeout(() => {
-          reverseIndex()
-          pages[pageNumber].style.zIndex = String(10 + index)
+    const reversed = pages.map((page, index) => ({ page, index })).reverse()
+    reversed.forEach(({ page, index }, step) => {
+      later(() => {
+        page.classList.remove("turn")
+        later(() => {
+          page.style.zIndex = String(20 - index)
         }, 500)
-      }, (index + 1) * 200 + 2100)
-      pageTimers.push(timer)
+      }, OPEN_AT + (step + 1) * 200)
     })
 
+    later(() => {
+      markBookReady()
+      const target = sheetFromHash(location.hash)
+      if (target !== null) goToSheet(target, { updateHash: false })
+    }, OPEN_AT + reversed.length * 200 + TURN_TRANSITION + 200)
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.altKey || e.ctrlKey || e.metaKey || isTypingTarget(e.target)) return
+      if (document.querySelector(".speechWindow, [cmdk-dialog]")) return
+      if (e.key === "ArrowRight") nextSheet()
+      else if (e.key === "ArrowLeft") prevSheet()
+    }
+
+    function onHashChange() {
+      const target = sheetFromHash(location.hash)
+      if (target !== null) goToSheet(target, { updateHash: false })
+    }
+
+    window.addEventListener("keydown", onKeyDown)
+    window.addEventListener("hashchange", onHashChange)
+
     return () => {
-      clearTimeout(coverTimer)
-      clearTimeout(coverZTimer)
-      clearTimeout(pageLeftTimer)
-      pageTimers.forEach(clearTimeout)
+      timers.forEach(clearTimeout)
+      window.removeEventListener("keydown", onKeyDown)
+      window.removeEventListener("hashchange", onHashChange)
     }
   }, [])
 

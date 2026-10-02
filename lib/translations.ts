@@ -4,7 +4,7 @@ export const translations = {
   en: {
     // Profile
     role: "Full Stack Dev",
-    intro: "Hello, my name is Thiago Medeiros, I am a full-stack developer passionate about creating innovative and efficient web solutions. We leverage our broad technology and tool knowledge to transform ideas into practical, high-quality applications. My focus is on building intuitive, secure, and scalable digital experiences, always attentive to details and the best development practices.",
+    intro: "Hello, my name is Thiago Medeiros, I am a full-stack developer passionate about creating innovative and efficient web solutions. I leverage my broad knowledge of technologies and tools to transform ideas into practical, high-quality applications. My focus is on building intuitive, secure, and scalable digital experiences, always attentive to details and the best development practices.",
     downloadCv: "Download CV",
     contactMe: "Contact Me",
 
@@ -16,7 +16,8 @@ export const translations = {
     job2Desc: "Software development project, creating a customer and employee management system using NestJS, React, Node.js, and MongoDB.",
     education: "Education",
     edu1Title: "Faculdade de Boa Viagem",
-    edu1Desc: "This is the college where I am pursuing my Bachelor's in Computer Science, currently in my fifth semester, looking for new experiences.",
+    edu1Desc: "This is the college where I am pursuing my Bachelor's in Computer Science, currently in my 7th semester, looking for new experiences.",
+    present: "Present",
     edu2Title: "CS50 Harvard Programming Course",
     edu2Desc: "CS50 Harvard programming course, teaching me to program in Python, HTML, CSS, JavaScript, among others.",
 
@@ -30,7 +31,7 @@ export const translations = {
     tools: "Tools",
 
     // Portfolio
-    latestProject: "Projetos",
+    latestProject: "Projects",
     liveDemo: "Live Demo",
     techUsed: "Tech Used:",
     project1Desc: "Personal AI assistant with real-time voice integration. Capable of automating tasks on Windows, managing files, controlling peripherals, and browsing the web autonomously via voice commands.",
@@ -44,8 +45,8 @@ export const translations = {
     // Project - Jarvis
     jarvisName: "J.A.R.V.I.S AI Assistant",
     jarvisTag: "Featured",
-    jarvisDesc: "An intelligent personal assistant powered by the Gemini API capable of speaking, listening, processing files, taking screenshots, and answering questions in real-time.",
-    jarvisCuriosity: "I built this assistant combining the Google Calendar API and the Jarvis APIs that I also developed.",
+    jarvisDesc: "A real-time voice assistant powered by Gemini Realtime and LiveKit. It remembers facts across sessions (Mem0) and performs tasks on the PC: browsing and clicking through websites, searching the web, opening projects and creating files.",
+    jarvisCuriosity: "When you say goodbye, it saves a summary of the conversation and starts the next session remembering what you talked about. And if you say 'Radio Silence', it stops talking immediately.",
     
     // Project - GTA I
     gtaName: "GTA I CSS3D",
@@ -106,12 +107,41 @@ export const translations = {
     accept: "Accept",
 
     // Portfolio wrapper
-    profile: "Profile"
+    profile: "Profile",
+
+    // Terminal
+    terminalOpen: "Open terminal (Ctrl+K)",
+    terminalPlaceholder: "Type a command or search...",
+    terminalNav: "Navigate",
+    terminalInfo: "About",
+    cmdWhoami: "Who is Thiago",
+    terminalActions: "Actions",
+    terminalHint: "↑↓ navigate · ↵ run · esc close",
+    cmdProfile: "Profile & experience",
+    cmdSkills: "Skills & projects",
+    cmdContact: "Contact",
+    cmdLanguage: "Mudar para Português",
+    cmdGithub: "Open GitHub",
+    cmdLinkedin: "Open LinkedIn",
+    sudoHire: "Hire Thiago",
+    sudoGranted: "[sudo] permission granted. Opening contact form...",
+
+    // Chat com IA
+    cmdChat: "Ask the AI about Thiago",
+    chatAsk: "Ask the AI",
+    chatPlaceholder: "Ask something about Thiago...",
+    chatWelcome: "Hi! I'm the AI assistant of this portfolio. Ask me about Thiago's projects, skills or experience.",
+    chatThinking: "thinking...",
+    chatBusy: "The AI is busy right now, but here's what I found in the portfolio:",
+    chatNoLocal: "The AI is busy right now and I couldn't find that in the portfolio. Try whoami, ls projetos or cat skills.txt, or reach Thiago through the contact form.",
+    chatRateLimited: "Too many questions in a short time. Wait a few minutes and try again.",
+    chatBack: "commands",
+    chatHint: "↵ send · esc close",
   },
   pt: {
     // Profile
     role: "Dev Full stack",
-    intro: "Olá, eu me chamo Thiago Medeiros, sou um desenvolvedor full-stack apaixonado por criar soluções web inovadoras e eficientes. Aproveitamos nossa ampla tecnologia e conhecimento de ferramentas para transformar ideias em aplicações práticas e de alta qualidade. Meu foco é construir experiências digitais intuitivas, seguras e escaláveis, sempre atento aos detalhes e às melhores práticas de desenvolvimento.",
+    intro: "Olá, eu me chamo Thiago Medeiros, sou um desenvolvedor full-stack apaixonado por criar soluções web inovadoras e eficientes. Uso meu amplo conhecimento de tecnologias e ferramentas para transformar ideias em aplicações práticas e de alta qualidade. Meu foco é construir experiências digitais intuitivas, seguras e escaláveis, sempre atento aos detalhes e às melhores práticas de desenvolvimento.",
     downloadCv: "Baixar CV",
     contactMe: "Contate-me",
 
@@ -123,7 +153,8 @@ export const translations = {
     job2Desc: "Projeto de desenvolvimento de software, criando um sistema de gerenciamento de clientes e funcionários, utilizando nestjs, react, node.js e mongodb.",
     education: "Educação",
     edu1Title: "Faculdade de Boa viagem",
-    edu1Desc: "Essa é a faculdade onde eu faço o bacharelado de Ciência da computação, pelo qual estou no momento no quinto periodo, em busca de novas experiências.",
+    edu1Desc: "Essa é a faculdade onde faço o bacharelado em Ciência da Computação. Atualmente estou no 7º período, em busca de novas experiências.",
+    present: "Atual",
     edu2Title: "Curso de programação CS50 Harvard",
     edu2Desc: "Curso de programação CS50 Harvard, que me ensina a programar em Python, HTML, CSS, JavaScript, entre outros.",
 
@@ -151,8 +182,8 @@ export const translations = {
     // Project - Jarvis
     jarvisName: "J.A.R.V.I.S AI Assistant",
     jarvisTag: "Destaque",
-    jarvisDesc: "Um assistente pessoal inteligente feito com a API do Gemini capaz de falar, ouvir, processar arquivos, tirar prints e responder perguntas em tempo real.",
-    jarvisCuriosity: "Eu construí este assistente juntando as APIs de agenda do Google e as do Jarvis que eu fiz também.",
+    jarvisDesc: "Assistente por voz em tempo real com Gemini Realtime e LiveKit. Lembra de fatos entre sessões (Mem0) e executa tarefas no PC: navega e clica em sites, pesquisa na web, abre projetos e cria arquivos.",
+    jarvisCuriosity: "Ao se despedir, ele salva um resumo da conversa e começa a próxima sessão lembrando do que vocês falaram. E se você disser 'Silêncio Rádio', ele para de falar na hora.",
     
     // Project - GTA I
     gtaName: "GTA I CSS3D",
@@ -213,6 +244,35 @@ export const translations = {
     accept: "Aceitar",
 
     // Portfolio wrapper
-    profile: "Perfil"
+    profile: "Perfil",
+
+    // Terminal
+    terminalOpen: "Abrir terminal (Ctrl+K)",
+    terminalPlaceholder: "Digite um comando ou busque...",
+    terminalNav: "Navegar",
+    terminalInfo: "Sobre",
+    cmdWhoami: "Quem é o Thiago",
+    terminalActions: "Ações",
+    terminalHint: "↑↓ navegar · ↵ executar · esc fechar",
+    cmdProfile: "Perfil e experiência",
+    cmdSkills: "Habilidades e projetos",
+    cmdContact: "Contato",
+    cmdLanguage: "Switch to English",
+    cmdGithub: "Abrir GitHub",
+    cmdLinkedin: "Abrir LinkedIn",
+    sudoHire: "Contratar o Thiago",
+    sudoGranted: "[sudo] permissão concedida. Abrindo formulário de contato...",
+
+    // Chat com IA
+    cmdChat: "Pergunte à IA sobre o Thiago",
+    chatAsk: "Perguntar à IA",
+    chatPlaceholder: "Pergunte algo sobre o Thiago...",
+    chatWelcome: "Oi! Sou o assistente de IA deste portfólio. Pergunte sobre os projetos, habilidades ou experiência do Thiago.",
+    chatThinking: "pensando...",
+    chatBusy: "A IA está ocupada agora, mas encontrei isto no portfólio:",
+    chatNoLocal: "A IA está ocupada agora e não achei isso no portfólio. Tente whoami, ls projetos ou cat skills.txt, ou fale com o Thiago pelo formulário de contato.",
+    chatRateLimited: "Muitas perguntas em pouco tempo. Espere alguns minutos e tente de novo.",
+    chatBack: "comandos",
+    chatHint: "↵ enviar · esc fechar",
   }
 };

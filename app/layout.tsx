@@ -47,9 +47,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  themeColor: "#ffffff",
+  themeColor: "#000000",
 }
 
 export default function RootLayout({
@@ -58,16 +56,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
-        />
-        <script
-          src="https://kit.fontawesome.com/228159e932.js"
-          crossOrigin="anonymous"
-          async
         />
       </head>
       <body className={poppins.variable}>
