@@ -1497,7 +1497,8 @@ html.light .theme-toggle-track {
   font-weight: 700;
 }
 
-.terminal-prompt [cmdk-input] {
+.terminal-prompt [cmdk-input],
+.terminal-chat-input {
   flex: 1;
   background: transparent;
   color: var(--main-color);
@@ -1505,7 +1506,8 @@ html.light .theme-toggle-track {
   caret-color: var(--main-color);
 }
 
-.terminal-prompt [cmdk-input]::placeholder {
+.terminal-prompt [cmdk-input]::placeholder,
+.terminal-chat-input::placeholder {
   color: rgba(0, 255, 65, 0.4);
 }
 
@@ -1549,6 +1551,14 @@ html.light .theme-toggle-track {
   color: #000;
 }
 
+.terminal-output {
+  white-space: pre-wrap;
+  max-height: min(50vh, 384px);
+  overflow-y: auto;
+  color: var(--second-text-color);
+  line-height: 1.5;
+}
+
 .terminal-window [cmdk-empty],
 .terminal-output {
   padding: 16px;
@@ -1560,6 +1570,61 @@ html.light .theme-toggle-track {
   border-top: 1px solid rgba(0, 255, 65, 0.3);
   font-size: 12px;
   opacity: 0.55;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ---- Chat com IA dentro do terminal ---- */
+.terminal-chat {
+  max-height: min(50vh, 384px);
+  min-height: 160px;
+  overflow-y: auto;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.terminal-chat-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--second-text-color);
+}
+
+.terminal-chat-line.user {
+  color: var(--text-color);
+}
+
+
+.terminal-chat-who {
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.terminal-chat-pending {
+  opacity: 0.6;
+  animation: terminal-blink 1s steps(2, start) infinite;
+}
+
+@keyframes terminal-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.terminal-back {
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.terminal-back:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {

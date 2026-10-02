@@ -112,8 +112,9 @@ export const translations = {
     // Terminal
     terminalOpen: "Open terminal (Ctrl+K)",
     terminalPlaceholder: "Type a command or search...",
-    terminalEmpty: "command not found",
     terminalNav: "Navigate",
+    terminalInfo: "About",
+    cmdWhoami: "Who is Thiago",
     terminalActions: "Actions",
     terminalHint: "↑↓ navigate · ↵ run · esc close",
     cmdProfile: "Profile & experience",
@@ -124,6 +125,18 @@ export const translations = {
     cmdLinkedin: "Open LinkedIn",
     sudoHire: "Hire Thiago",
     sudoGranted: "[sudo] permission granted. Opening contact form...",
+
+    // Chat com IA
+    cmdChat: "Ask the AI about Thiago",
+    chatAsk: "Ask the AI",
+    chatPlaceholder: "Ask something about Thiago...",
+    chatWelcome: "Hi! I'm the AI assistant of this portfolio. Ask me about Thiago's projects, skills or experience.",
+    chatThinking: "thinking...",
+    chatBusy: "The AI is busy right now, but here's what I found in the portfolio:",
+    chatNoLocal: "The AI is busy right now and I couldn't find that in the portfolio. Try whoami, ls projetos or cat skills.txt, or reach Thiago through the contact form.",
+    chatRateLimited: "Too many questions in a short time. Wait a few minutes and try again.",
+    chatBack: "commands",
+    chatHint: "↵ send · esc close",
   },
   pt: {
     // Profile
@@ -236,8 +249,9 @@ export const translations = {
     // Terminal
     terminalOpen: "Abrir terminal (Ctrl+K)",
     terminalPlaceholder: "Digite um comando ou busque...",
-    terminalEmpty: "comando não encontrado",
     terminalNav: "Navegar",
+    terminalInfo: "Sobre",
+    cmdWhoami: "Quem é o Thiago",
     terminalActions: "Ações",
     terminalHint: "↑↓ navegar · ↵ executar · esc fechar",
     cmdProfile: "Perfil e experiência",
@@ -248,5 +262,17 @@ export const translations = {
     cmdLinkedin: "Abrir LinkedIn",
     sudoHire: "Contratar o Thiago",
     sudoGranted: "[sudo] permissão concedida. Abrindo formulário de contato...",
+
+    // Chat com IA
+    cmdChat: "Pergunte à IA sobre o Thiago",
+    chatAsk: "Perguntar à IA",
+    chatPlaceholder: "Pergunte algo sobre o Thiago...",
+    chatWelcome: "Oi! Sou o assistente de IA deste portfólio. Pergunte sobre os projetos, habilidades ou experiência do Thiago.",
+    chatThinking: "pensando...",
+    chatBusy: "A IA está ocupada agora, mas encontrei isto no portfólio:",
+    chatNoLocal: "A IA está ocupada agora e não achei isso no portfólio. Tente whoami, ls projetos ou cat skills.txt, ou fale com o Thiago pelo formulário de contato.",
+    chatRateLimited: "Muitas perguntas em pouco tempo. Espere alguns minutos e tente de novo.",
+    chatBack: "comandos",
+    chatHint: "↵ enviar · esc fechar",
   }
 };
