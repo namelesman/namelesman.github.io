@@ -12,13 +12,45 @@ export type Project = {
   tag: TranslationKey
   desc: TranslationKey
   curiosity: TranslationKey
-  repoName: string
+  // Sem repoName: código privado (projeto de cliente)
+  repoName?: string
   icon: string
   demo?: string
   tech: TechName[]
 }
 
 export const PROJECTS: Project[] = [
+  {
+    id: "grandiesel",
+    name: "grandieselName",
+    tag: "grandieselTag",
+    desc: "grandieselDesc",
+    curiosity: "grandieselCuriosity",
+    icon: "🚚",
+    demo: "https://grandieselbr.netlify.app",
+    tech: ["Next", "TypeScript", "React", "Tailwind", "PostgreSQL", "Node"],
+  },
+  {
+    id: "usebro",
+    name: "usebroName",
+    tag: "usebroTag",
+    desc: "usebroDesc",
+    curiosity: "usebroCuriosity",
+    icon: "👕",
+    demo: "https://usebro-menswear.vercel.app",
+    tech: ["Next", "TypeScript", "React", "Tailwind", "PostgreSQL"],
+  },
+  {
+    id: "glaydstone",
+    name: "glaydstoneName",
+    tag: "glaydstoneTag",
+    desc: "glaydstoneDesc",
+    curiosity: "glaydstoneCuriosity",
+    repoName: "glaydstone-landing-page",
+    icon: "⚖️",
+    demo: "https://glaydstone-next.vercel.app",
+    tech: ["Next", "TypeScript", "React", "Tailwind"],
+  },
   {
     id: "vagasia",
     name: "vagasiaName",
@@ -83,5 +115,8 @@ export const PROJECTS: Project[] = [
 ]
 
 export function repoUrl(project: Project) {
-  return `https://github.com/${GITHUB_USER}/${project.repoName}`
+  return project.repoName ? `https://github.com/${GITHUB_USER}/${project.repoName}` : null
 }
+
+/** Nome usado no comando "open" do terminal. */
+export const projectSlug = (project: Project) => project.repoName ?? project.id

@@ -12,7 +12,7 @@ export function whoami(t: T) {
 
 export function listProjects(t: T, projects = PROJECTS) {
   return projects
-    .map((p) => `${p.icon} ${t[p.name]} [${t[p.tag]}]\n   ${p.tech.join(", ")} · ${repoUrl(p)}`)
+    .map((p) => `${p.icon} ${t[p.name]} [${t[p.tag]}]\n   ${p.tech.join(", ")} · ${repoUrl(p) ?? p.demo ?? t.privateCode}`)
     .join("\n")
 }
 
@@ -21,7 +21,7 @@ export function catSkills(t: T) {
 }
 
 export function catExperience(t: T) {
-  return `2021 - 2023 · ${t.job1Title}\n${t.job1Desc}\n\n2024 - 2025 · ${t.job2Title}\n${t.job2Desc}`
+  return `2021 - 2023 · ${t.job1Title}\n${t.job1Desc}\n\n2024 - 2025 · ${t.job2Title}\n${t.job2Desc}\n\n2026 - ${t.present} · ${t.job3Title}\n${t.job3Desc}`
 }
 
 export function catEducation(t: T) {
@@ -57,7 +57,7 @@ export function answerLocally(question: string, language: Language) {
 
   // Projetos cujo nome, tag, descrição ou tecnologias aparecem na pergunta
   const matched = PROJECTS.filter((p) => {
-    const haystack = normalize([t[p.name], t[p.tag], t[p.desc], p.repoName, ...p.tech].join(" "))
+    const haystack = normalize([t[p.name], t[p.tag], t[p.desc], p.repoName ?? p.id, ...p.tech].join(" "))
     return tokens.some((w) => w.length >= 2 && new RegExp(`\\b${w.replace(/[.+#]/g, "\\$&")}`).test(haystack))
   })
   const asksProjects = /projet|project|portf/.test(q)

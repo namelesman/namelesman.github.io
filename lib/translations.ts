@@ -14,6 +14,8 @@ export const translations = {
     job1Desc: "Project at the Department of Education: Assisting in Software Development and user support, system security, and providing support in the construction and maintenance of databases and networks.",
     job2Title: "Back-end Developer",
     job2Desc: "Software development project, creating a customer and employee management system using NestJS, React, Node.js, and MongoDB.",
+    job3Title: "Freelance Full Stack Developer",
+    job3Desc: "Custom systems for companies: online stores with an admin panel, ERP integration (Map-OS) and electronic invoice issuing (NFS-e and NF-e) straight to the tax authority. Clients: GranDiesel, Use Bro and Glaydstone Daniel Advocacia.",
     education: "Education",
     edu1Title: "Faculdade de Boa Viagem",
     edu1Desc: "This is the college where I am pursuing my Bachelor's in Computer Science, currently in my 7th semester, looking for new experiences.",
@@ -37,6 +39,7 @@ export const translations = {
     project1Desc: "Personal AI assistant with real-time voice integration. Capable of automating tasks on Windows, managing files, controlling peripherals, and browsing the web autonomously via voice commands.",
     sourceCode: "Source Code",
     livePreview: "Live Preview",
+    privateCode: "Private code (client project)",
     project2Desc: "I made this demo just to see how powerful CSS 3D is, and got carried away... I was also curious to see if CSS works for making games (spoiler alert: not really).",
     moreProjects: "More Projects",
 
@@ -77,6 +80,24 @@ export const translations = {
     mapaRecifeTag: "Desktop App",
     mapaRecifeDesc: "A native Windows desktop application built with CustomTkinter and TkinterMapView to display an interactive map of Recife, loaded with real-time POI data from OpenStreetMap.",
     mapaRecifeCuriosity: "I built a smart caching system to store Overpass API results locally, allowing instantaneous loading for previously searched filters.",
+
+    // Project - GranDiesel
+    grandieselName: "GranDiesel - Parts Store & Invoicing",
+    grandieselTag: "Main Project",
+    grandieselDesc: "A complete system for a heavy-vehicle and pneumatic parts company: parts catalog with quotes via WhatsApp and email-code login, an admin panel (products, customers, orders, finance, employees), Map-OS ERP integration, and electronic invoices (NFS-e and NF-e model 55) issued directly to the tax authority with an A1 digital certificate, XML signing and a PDF DANFE. The home page has an interactive 3D truck (three.js, modeled in Blender).",
+    grandieselCuriosity: "Repair-return invoices arrive by themselves: every 15 minutes the site downloads the notes issued against the company from the tax authority, and every generated XML is validated against the official XSD schemas in the tests.",
+
+    // Project - Use Bro
+    usebroName: "Use Bro - Menswear Store",
+    usebroTag: "E-commerce",
+    usebroDesc: "Menswear store with catalog, cart that closes the order on WhatsApp and a mini-ERP: products with CSV import, orders, customers and a sales chart. Built with Next.js, Prisma and Neon Postgres.",
+    usebroCuriosity: "The order doesn't need online payment: the cart becomes a ready-made WhatsApp message, and the order still shows up in the admin panel to be confirmed.",
+
+    // Project - Glaydstone
+    glaydstoneName: "Glaydstone Daniel Advocacia",
+    glaydstoneTag: "Landing Page",
+    glaydstoneDesc: "Landing page for a labor and social security law firm: practice areas, advantages, testimonials and direct contact via WhatsApp, with Framer Motion animations and attention to accessibility (respects reduced motion).",
+    glaydstoneCuriosity: "The contact buttons use a custom radial reveal effect: on hover, the color spreads from the center like a ripple, built with Framer Motion's useAnimate.",
 
     // Contact
     contactTitle: "Contact Me!",
@@ -144,6 +165,8 @@ export const translations = {
     job1Desc: "Projeto na Secretaria de Educação: Auxiliando no Desenvolvimento de Softwares e suporte aos usuários do sistema, segurança de sistemas e dando apoio na construção e manutenção de banco de dados e rede.",
     job2Title: "Desenvolvedor Back-end",
     job2Desc: "Projeto de desenvolvimento de software, criando um sistema de gerenciamento de clientes e funcionários, utilizando nestjs, react, node.js e mongodb.",
+    job3Title: "Desenvolvedor Full Stack Freelancer",
+    job3Desc: "Sistemas sob medida para empresas: lojas online com painel administrativo, integração com ERP (Map-OS) e emissão de notas fiscais (NFS-e e NF-e) direto na SEFAZ. Clientes: GranDiesel, Use Bro e Glaydstone Daniel Advocacia.",
     education: "Educação",
     edu1Title: "Faculdade de Boa viagem",
     edu1Desc: "Essa é a faculdade onde faço o bacharelado em Ciência da Computação. Atualmente estou no 7º período, em busca de novas experiências.",
@@ -167,6 +190,7 @@ export const translations = {
     project1Desc: "Assistente de IA pessoal com integração de voz em tempo real. Capaz de automatizar tarefas no Windows, gerenciar arquivos, controlar periféricos e navegar na web de forma autônoma via comandos de voz.",
     sourceCode: "Código Fonte",
     livePreview: "Ver Online",
+    privateCode: "Código privado (projeto de cliente)",
     project2Desc: "Fiz esta demo só para ver o quanto o CSS 3D é poderoso, e acabei me empolgando... Também fiquei curioso para ver se CSS serve para fazer jogos (alerta de spoiler: não serve muito).",
     moreProjects: "Mais Projetos",
 
@@ -207,6 +231,24 @@ export const translations = {
     mapaRecifeTag: "App Desktop",
     mapaRecifeDesc: "Um aplicativo nativo para Windows feito em CustomTkinter que exibe um mapa interativo de Recife com pontos comerciais reais extraídos do OpenStreetMap em tempo real.",
     mapaRecifeCuriosity: "Criei um sistema de cache inteligente local que salva os dados da Overpass API, permitindo que a busca funcione instantaneamente nas próximas execuções sem depender da internet.",
+
+    // Projeto - GranDiesel
+    grandieselName: "GranDiesel - Loja de Peças e Notas Fiscais",
+    grandieselTag: "Projeto Principal",
+    grandieselDesc: "Sistema completo para uma empresa de linha pesada e pneumática: catálogo de peças com orçamento pelo WhatsApp e login por código no e-mail, painel administrativo (produtos, clientes, pedidos, financeiro, funcionários), integração com o ERP Map-OS e emissão de notas fiscais (NFS-e e NF-e modelo 55) direto na SEFAZ, com certificado digital A1, assinatura do XML e DANFE em PDF. A home tem um caminhão 3D interativo (three.js, modelado no Blender).",
+    grandieselCuriosity: "As notas de remessa para conserto chegam sozinhas: a cada 15 minutos o site baixa da SEFAZ as notas emitidas contra a empresa, e todo XML gerado é validado contra os schemas XSD oficiais nos testes.",
+
+    // Projeto - Use Bro
+    usebroName: "Use Bro - Loja de Moda Masculina",
+    usebroTag: "E-commerce",
+    usebroDesc: "Loja de moda masculina com catálogo, carrinho que fecha o pedido no WhatsApp e mini-ERP: produtos com importação por CSV, pedidos, clientes e gráfico de vendas. Feita com Next.js, Prisma e Neon Postgres.",
+    usebroCuriosity: "O pedido não precisa de pagamento online: o carrinho vira uma mensagem pronta no WhatsApp, e o pedido ainda aparece no painel para ser confirmado.",
+
+    // Projeto - Glaydstone
+    glaydstoneName: "Glaydstone Daniel Advocacia",
+    glaydstoneTag: "Landing Page",
+    glaydstoneDesc: "Landing page de um escritório de advocacia trabalhista e previdenciária: áreas de atuação, vantagens, depoimentos e contato direto pelo WhatsApp, com animações em Framer Motion e cuidado com acessibilidade (respeita quem prefere menos movimento).",
+    glaydstoneCuriosity: "Os botões de contato têm um efeito próprio de revelação radial: ao passar o mouse, a cor se espalha a partir do centro, feito com o useAnimate do Framer Motion.",
 
     // Contact
     contactTitle: "Contate-me!",

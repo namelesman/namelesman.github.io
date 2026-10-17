@@ -8,7 +8,7 @@ import { TerminalPacman } from "./terminal-pacman"
 import { playBeep, playKeystroke } from "../lib/audio"
 import { goToSheet, isTypingTarget, openProject } from "../lib/book"
 import { CV_DOWNLOAD_NAME, LINKS } from "../lib/links"
-import { PROJECTS } from "../lib/projects"
+import { PROJECTS, projectSlug } from "../lib/projects"
 import { catContact, catEducation, catExperience, catSkills, listProjects, whoami } from "../lib/local-answers"
 import { translations } from "../lib/translations"
 
@@ -201,11 +201,11 @@ export function Terminal() {
                   {PROJECTS.map((project) => (
                     <Command.Item
                       key={project.id}
-                      value={`open ${project.repoName} ${t(project.name)}`}
+                      value={`open ${projectSlug(project)} ${t(project.name)}`}
                       keywords={[t(project.tag), ...project.tech]}
                       onSelect={() => run(() => openProject(project.id))}
                     >
-                      <code>open {project.repoName}</code>
+                      <code>open {projectSlug(project)}</code>
                       <span>
                         {project.icon} {t(project.name)}
                       </span>
