@@ -14,7 +14,7 @@ function buildProfile() {
       `  Descrição: ${pt[p.desc]}`,
       `  Curiosidade: ${pt[p.curiosity]}`,
       `  Tecnologias: ${p.tech.join(", ")}`,
-      `  Repositório: ${repoUrl(p)}`,
+      `  Repositório: ${repoUrl(p) ?? "código privado (projeto de cliente)"}`,
       p.demo ? `  Demo online: ${p.demo}` : null,
     ]
       .filter(Boolean)
@@ -31,6 +31,7 @@ Apresentação: ${pt.intro}
 # Experiência profissional
 - 2021 - 2023 · ${pt.job1Title}: ${pt.job1Desc}
 - 2024 - 2025 · ${pt.job2Title}: ${pt.job2Desc}
+- 2026 - atual · ${pt.job3Title}: ${pt.job3Desc}
 
 # Formação
 - 2021 - atual · ${pt.edu1Title}: ${pt.edu1Desc}

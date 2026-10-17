@@ -27,6 +27,16 @@ export function WorkAndEducationPage() {
             {t("job2Desc")}
           </p>
         </div>
+        <div className="workeduc-content">
+          <span className="year">
+            <i className="bx bxs-calendar" />
+            {`2026 - ${t("present")}`}
+          </span>
+          <h3>{t("job3Title")}</h3>
+          <p>
+            {t("job3Desc")}
+          </p>
+        </div>
       </div>
 
       <h1 className="tittle" style={{ marginTop: '1.5rem' }}>{t("education")}</h1>

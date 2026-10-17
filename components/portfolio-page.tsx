@@ -91,7 +91,13 @@ export function PortfolioPage() {
           <span style={{ fontStyle: "italic" }}>{t(activeProject.curiosity)}</span>
         </p>
 
-        <ReadmeViewer repoName={activeProject.repoName} />
+        {activeProject.repoName ? (
+          <ReadmeViewer repoName={activeProject.repoName} />
+        ) : (
+          <p className="popoverDesc" style={{ marginTop: "1rem", opacity: 0.8 }}>
+            <i className="bx bx-lock-alt" /> {t("privateCode")}
+          </p>
+        )}
         
         <div className="popoverTech">
           <p>{t("techUsed")}</p>
@@ -106,14 +112,16 @@ export function PortfolioPage() {
         </div>
 
         <div className="popoverLinks">
-          <a
-            href={repoUrl(activeProject)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn"
-          >
-            {t("sourceCode")}
-          </a>
+          {activeProject.repoName && (
+            <a
+              href={repoUrl(activeProject) ?? undefined}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+            >
+              {t("sourceCode")}
+            </a>
+          )}
           {activeProject.demo && (
             <a
               href={activeProject.demo}
