@@ -1,6 +1,7 @@
 import { LINKS } from "./links"
 import { PROJECTS, repoUrl } from "./projects"
-import { SKILL_GROUPS } from "./skills"
+import { SKILL_GROUPS, skillText } from "./skills"
+import { techLabel } from "./tech-icons"
 import { translations } from "./translations"
 
 // Montado a partir dos mesmos dados que o site exibe, para a IA nunca ficar desatualizada
@@ -21,7 +22,9 @@ function buildProfile() {
       .join("\n"),
   ).join("\n")
 
-  const skills = SKILL_GROUPS.map((g) => `- ${pt[g.title]}: ${g.skills.join(", ")}`).join("\n")
+  // Família vira "Python (Flask, FastAPI)": linguagem e os frameworks usados com ela
+  const label = (name: Parameters<typeof techLabel>[0]) => techLabel(name, (key) => pt[key])
+  const skills = SKILL_GROUPS.map((g) => `- ${pt[g.title]}: ${g.skills.map((item) => skillText(item, label)).join(", ")}`).join("\n")
 
   return `# Perfil
 Nome: Thiago Medeiros
