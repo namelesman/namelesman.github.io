@@ -86,7 +86,7 @@ export const translations = {
     // Project - GranDiesel
     grandieselName: "GranDiesel - Parts Store & Invoicing",
     grandieselTag: "Main Project",
-    grandieselDesc: "A complete system for a heavy-vehicle and pneumatic parts company: parts catalog with quotes via WhatsApp and email-code login, an admin panel (products, customers, orders, finance, employees), Map-OS ERP integration, and electronic invoices (NFS-e and NF-e model 55) issued directly to the tax authority with an A1 digital certificate, XML signing and a PDF DANFE. The home page has an interactive 3D truck (three.js, modeled in Blender).",
+    grandieselDesc: "A complete system for a heavy-vehicle and pneumatic parts company: parts catalog with quotes via WhatsApp and email-code login, an admin panel (products, customers, orders, finance, employees), Map-OS ERP integration, and electronic invoices (NFS-e and NF-e model 55) issued directly to the tax authority with an A1 digital certificate, XML signing and a PDF DANFE. Billing for the workshop: Asaas bank slips, a \"Bill\" button that issues the invoice and the slip in one step, an automatic email when the service order is ready and dashboard metrics (orders in progress, ready but not billed, average service time). The home page has an interactive 3D truck (three.js, modeled in Blender) that turns into a photo on phones and slow connections, plus local SEO with schema.org data, a sitemap and a share image.",
     grandieselCuriosity: "Repair-return invoices arrive by themselves: every 15 minutes the site downloads the notes issued against the company from the tax authority, and every generated XML is validated against the official XSD schemas in the tests.",
 
     // Project - Use Bro
@@ -240,7 +240,7 @@ export const translations = {
     // Projeto - GranDiesel
     grandieselName: "GranDiesel - Loja de Peças e Notas Fiscais",
     grandieselTag: "Projeto Principal",
-    grandieselDesc: "Sistema completo para uma empresa de linha pesada e pneumática: catálogo de peças com orçamento pelo WhatsApp e login por código no e-mail, painel administrativo (produtos, clientes, pedidos, financeiro, funcionários), integração com o ERP Map-OS e emissão de notas fiscais (NFS-e e NF-e modelo 55) direto na SEFAZ, com certificado digital A1, assinatura do XML e DANFE em PDF. A home tem um caminhão 3D interativo (three.js, modelado no Blender).",
+    grandieselDesc: "Sistema completo para uma empresa de linha pesada e pneumática: catálogo de peças com orçamento pelo WhatsApp e login por código no e-mail, painel administrativo (produtos, clientes, pedidos, financeiro, funcionários), integração com o ERP Map-OS e emissão de notas fiscais (NFS-e e NF-e modelo 55) direto na SEFAZ, com certificado digital A1, assinatura do XML e DANFE em PDF. Cobrança da oficina: boleto via Asaas, botão \"Faturar\" que emite a nota e gera o boleto de uma vez, e-mail automático quando a OS fica pronta e números da oficina no painel (OS em andamento, prontas sem cobrança, tempo médio de serviço). A home tem um caminhão 3D interativo (three.js, modelado no Blender) que vira foto no celular e em conexão lenta, além de SEO local com dados schema.org, sitemap e imagem de compartilhamento.",
     grandieselCuriosity: "As notas de remessa para conserto chegam sozinhas: a cada 15 minutos o site baixa da SEFAZ as notas emitidas contra a empresa, e todo XML gerado é validado contra os schemas XSD oficiais nos testes.",
 
     // Projeto - Use Bro
