@@ -29,8 +29,7 @@ export const translations = {
     frontend: "Front-End",
     backend: "Back-End",
     database: "Database",
-    ai: "Artificial Intelligence (AI)",
-    tools: "Tools",
+    devopsAi: "DevOps, AI & Practices",
 
     // Portfolio
     latestProject: "Projects",
@@ -180,8 +179,7 @@ export const translations = {
     frontend: "Front-End",
     backend: "Back-End",
     database: "Banco de Dados",
-    ai: "Inteligência Artificial (IA)",
-    tools: "Ferramentas",
+    devopsAi: "DevOps, IA e Práticas",
 
     // Portfolio
     latestProject: "Projetos",

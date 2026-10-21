@@ -585,7 +585,9 @@ html.light .theme-toggle-track {
   justify-content: center;
   text-align: center;
   width: 6rem;
-  height: 5rem;
+  /* min-height: nomes longos (GitHub Actions, Oracle Cloud) quebram em duas linhas */
+  min-height: 5rem;
+  padding: 0.3rem 0.2rem;
   border: var(--border);
   border-radius: 0.3rem;
   font-weight: 600;
