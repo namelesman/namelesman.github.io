@@ -1,22 +1,22 @@
 # Graph Report - Portifolio  (2026-10-21)
 
 ## Corpus Check
-- 41 files · ~34,988 words
+- 41 files · ~35,261 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .css 2)
 
 ## Summary
-- 333 nodes · 633 edges · 20 communities (15 shown, 5 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 32 edges (avg confidence: 0.85)
+- 339 nodes · 643 edges · 20 communities (14 shown, 6 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 36 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0d35ef62`
+- Built from commit: `0c96fbef`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- useLanguage
+- global.d.ts
 - Terminal e Chat IA (UI)
 - Pac-Man: Loop do Jogo
 - Projetos e Dependências Dev
@@ -39,12 +39,12 @@
 ## God Nodes (most connected - your core abstractions)
 1. `Terminal()` - 25 edges
 2. `useLanguage()` - 24 edges
-3. `compilerOptions` - 18 edges
-4. `Ghost` - 17 edges
-5. `goToSheet()` - 15 edges
-6. `Pacman` - 15 edges
-7. `react` - 13 edges
-8. `BookInteractions()` - 12 edges
+3. `BookInteractions()` - 18 edges
+4. `compilerOptions` - 18 edges
+5. `Ghost` - 17 edges
+6. `goToSheet()` - 15 edges
+7. `Pacman` - 15 edges
+8. `react` - 13 edges
 9. `Portfolio()` - 12 edges
 10. `playBeep()` - 12 edges
 
@@ -53,12 +53,12 @@
   public/pacman/index.html → public/Currículo Thiago.pdf
 - `Home()` --calls--> `Portfolio()`  [EXTRACTED]
   app/page.tsx → components/portfolio.tsx
-- `ContactPage()` --calls--> `playKeystroke()`  [EXTRACTED]
-  components/contact-page.tsx → lib/audio.ts
-- `CookieConsent()` --calls--> `playBeep()`  [EXTRACTED]
-  components/cookie-consent.tsx → lib/audio.ts
-- `LanguageToggle()` --calls--> `playBeep()`  [EXTRACTED]
-  components/language-toggle.tsx → lib/audio.ts
+- `BookInteractions()` --calls--> `goToSheet()`  [EXTRACTED]
+  components/book-interactions.tsx → lib/book.ts
+- `BookInteractions()` --calls--> `isTypingTarget()`  [EXTRACTED]
+  components/book-interactions.tsx → lib/book.ts
+- `onKeyDown()` --calls--> `isTypingTarget()`  [EXTRACTED]
+  components/book-interactions.tsx → lib/book.ts
 
 ## Import Cycles
 - None detected.
@@ -68,15 +68,11 @@
 - **Four ghost color variants in one sprite sheet** — public_pacman_ghost_blinky_sprite, public_pacman_ghost_clyde_sprite, public_pacman_ghost_pinky_sprite, public_pacman_ghost_inky_sprite [EXTRACTED 1.00]
 - **Resume professional history and education** — public_curr_culo_thiago_estagio_prefeitura_jaboatao, public_curr_culo_thiago_hollow_soft, public_curr_culo_thiago_bacharel_ciencia_computacao, public_curr_culo_thiago_cs50 [EXTRACTED 1.00]
 
-## Communities (20 total, 5 thin omitted)
-
-### Community 0 - "useLanguage"
-Cohesion: 0.17
-Nodes (16): Home(), ContactPage(), useLanguage(), MatrixBackground(), PortfolioPage(), ReadmeViewer(), Portfolio(), ProfilePage() (+8 more)
+## Communities (20 total, 6 thin omitted)
 
 ### Community 1 - "Terminal e Chat IA (UI)"
-Cohesion: 0.13
-Nodes (24): LanguageContext, LanguageContextType, buildProfile(), CV_DOWNLOAD_NAME, LINKS, catSkills(), listProjects(), STOPWORDS (+16 more)
+Cohesion: 0.10
+Nodes (31): Home(), ContactPage(), LanguageContext, LanguageContextType, useLanguage(), MatrixBackground(), PortfolioPage(), ReadmeViewer() (+23 more)
 
 ### Community 2 - "Pac-Man: Loop do Jogo"
 Cohesion: 0.07
@@ -84,15 +80,15 @@ Nodes (37): Pac-Man Animation Sprite Sheet (animations.gif), Pac-Man Mouth Chomp
 
 ### Community 3 - "Projetos e Dependências Dev"
 Cohesion: 0.06
-Nodes (32): dependencies, cmdk, @google/genai, next, @next/third-parties, nodemailer, react, react-dom (+24 more)
+Nodes (35): dependencies, cmdk, @google/genai, next, @next/third-parties, nodemailer, react, react-dom (+27 more)
 
 ### Community 4 - "Config TypeScript"
 Cohesion: 0.10
 Nodes (20): compilerOptions, allowJs, esModuleInterop, forceConsistentCasingInFileNames, incremental, isolatedModules, jsx, jsxImportSource (+12 more)
 
 ### Community 5 - "Navegação do Livro"
-Cohesion: 0.25
-Nodes (19): BookInteractions(), onHashChange(), onKeyDown(), playPageTurn(), bookState(), getSheet(), getSheetCount(), goToSheet() (+11 more)
+Cohesion: 0.17
+Nodes (21): BookInteractions(), onHashChange(), onKeyDown(), onTouchMove(), onTouchStart(), onWheel(), scrollBy(), scrollerFor() (+13 more)
 
 ### Community 6 - "Pac-Man: IA dos Fantasmas"
 Cohesion: 0.21
@@ -111,8 +107,8 @@ Cohesion: 0.21
 Nodes (12): ChatPayload, isRateLimited(), MODELS, openStream(), parseMessages(), POST(), requestsByIp, RETRYABLE_STATUS (+4 more)
 
 ### Community 11 - "terminal.tsx"
-Cohesion: 0.11
-Nodes (29): ChatMessage, TerminalChat(), onKeyDown(), TerminalChatProps, useAiChat(), send(), updateLast(), downloadCv() (+21 more)
+Cohesion: 0.10
+Nodes (36): ChatMessage, TerminalChat(), onKeyDown(), TerminalChatProps, useAiChat(), send(), updateLast(), downloadCv() (+28 more)
 
 ### Community 12 - "Screenshot J.A.R.V.I.S"
 Cohesion: 0.40
@@ -132,23 +128,23 @@ Nodes (3): browser, candidates, out
 
 ## Knowledge Gaps
 - **24 isolated node(s):** `@types/node`, `@types/nodemailer`, `@types/react`, `@types/react-dom`, `typescript` (+19 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 135 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 136 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `terminal.tsx` to `useLanguage`, `Terminal e Chat IA (UI)`, `Projetos e Dependências Dev`, `Navegação do Livro`, `APIs, SEO e Fundo`?**
-  _High betweenness centrality (0.075) - this node is a cross-community bridge._
+- **Why does `react` connect `terminal.tsx` to `global.d.ts`, `Terminal e Chat IA (UI)`, `Projetos e Dependências Dev`, `Navegação do Livro`, `APIs, SEO e Fundo`?**
+  _High betweenness centrality (0.077) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Terminal()` (e.g. with `downloadCv()` and `onKeyDown()`) actually correct?**
   _`Terminal()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `@types/node`, `@types/nodemailer`, `@types/react` to the rest of the system?**
   _24 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Terminal e Chat IA (UI)` be split into smaller, more focused modules?**
-  _Cohesion score 0.12698412698412698 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10034013605442177 - nodes in this community are weakly interconnected._
 - **Why does `next` connect `APIs, SEO e Fundo` to `Terminal e Chat IA (UI)`, `API do Chat Gemini`, `Projetos e Dependências Dev`?**
-  _High betweenness centrality (0.049) - this node is a cross-community bridge._
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
+- **Are the 6 inferred relationships involving `BookInteractions()` (e.g. with `onHashChange()` and `onKeyDown()`) actually correct?**
+  _`BookInteractions()` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Pac-Man: Loop do Jogo` be split into smaller, more focused modules?**
   _Cohesion score 0.07073170731707316 - nodes in this community are weakly interconnected._
-- **Should `Projetos e Dependências Dev` be split into smaller, more focused modules?**
-  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
