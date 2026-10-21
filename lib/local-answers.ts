@@ -1,6 +1,7 @@
 import { LINKS } from "./links"
 import { PROJECTS, repoUrl } from "./projects"
-import { SKILL_GROUPS } from "./skills"
+import { SKILL_GROUPS, skillText } from "./skills"
+import { techLabel } from "./tech-icons"
 import { translations, type Language } from "./translations"
 
 // Respostas montadas só com os dados do site: custo zero e funcionam mesmo sem a IA
@@ -17,7 +18,8 @@ export function listProjects(t: T, projects = PROJECTS) {
 }
 
 export function catSkills(t: T) {
-  return SKILL_GROUPS.map((g) => `${t[g.title]}: ${g.skills.join(", ")}`).join("\n")
+  const label = (name: Parameters<typeof techLabel>[0]) => techLabel(name, (key) => t[key])
+  return SKILL_GROUPS.map((g) => `${t[g.title]}: ${g.skills.map((item) => skillText(item, label)).join(", ")}`).join("\n")
 }
 
 export function catExperience(t: T) {

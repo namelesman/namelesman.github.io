@@ -30,6 +30,9 @@ export const translations = {
     backend: "Back-End",
     database: "Database",
     devopsAi: "DevOps, AI & Practices",
+    skillLegendBase: "language",
+    skillLegendUses: "frameworks & tools",
+    skillAiOrchestration: "AI Orchestration",
 
     // Portfolio
     latestProject: "Projects",
@@ -180,6 +183,9 @@ export const translations = {
     backend: "Back-End",
     database: "Banco de Dados",
     devopsAi: "DevOps, IA e Práticas",
+    skillLegendBase: "linguagem",
+    skillLegendUses: "frameworks e ferramentas",
+    skillAiOrchestration: "Orquestração de IA",
 
     // Portfolio
     latestProject: "Projetos",
