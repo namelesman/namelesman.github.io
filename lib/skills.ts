@@ -7,12 +7,12 @@ export type SkillFamily = { base: TechName[]; uses: TechName[] }
 export type SkillItem = TechName | SkillFamily
 
 export const SKILL_GROUPS: { title: keyof typeof translations["en"]; skills: SkillItem[] }[] = [
-  { title: "frontend", skills: [{ base: ["JS", "TypeScript"], uses: ["React", "Next"] }, "Tailwind"] },
+  { title: "frontend", skills: [{ base: ["JS", "TypeScript"], uses: ["React", "Next", "Three.js"] }, "Tailwind", "Blender"] },
   {
     title: "backend",
     skills: [
       { base: ["Python"], uses: ["Flask", "FastAPI"] },
-      { base: ["Node"], uses: ["Nestjs"] },
+      { base: ["Node"], uses: ["Nestjs", "Prisma"] },
       { base: ["Java"], uses: [] },
       { base: ["C/C++"], uses: [] },
       "REST API",
