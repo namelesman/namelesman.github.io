@@ -61,7 +61,7 @@ export const translations = {
     pacmanName: "Pacman JS",
     pacmanTag: "Game Dev",
     pacmanDesc: "A complete clone of the classic Pac-Man game, fully developed in JavaScript, HTML5 Canvas, and CSS.",
-    pacmanCuriosity: "The ghost's AI algorithms (Blinky, Pinky, Inky, and Clyde) mimic the exact behavior of the original arcade game.",
+    pacmanCuriosity: "The ghosts find their way through the maze with a BFS search: they patrol the corners and chase Pac-Man when he gets close.",
 
     // Project - AlunoBD
     alunobdName: "CRUD Java AlunoBD",
@@ -212,7 +212,7 @@ export const translations = {
     pacmanName: "Pacman JS",
     pacmanTag: "Game Dev",
     pacmanDesc: "Um clone completo do clássico jogo Pac-Man, totalmente desenvolvido em JavaScript, HTML5 Canvas e CSS.",
-    pacmanCuriosity: "Os algoritmos de IA dos fantasmas (Blinky, Pinky, Inky e Clyde) imitam exatamente o comportamento do jogo original de arcade.",
+    pacmanCuriosity: "Os fantasmas acham o caminho pelo labirinto com uma busca em largura (BFS): patrulham os cantos e perseguem o Pac-Man quando ele chega perto.",
 
     // Project - AlunoBD
     alunobdName: "CRUD Java AlunoBD",

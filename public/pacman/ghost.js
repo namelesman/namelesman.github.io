@@ -24,9 +24,9 @@ class Ghost {
         this.range = range;
         this.randomTargetIndex = parseInt(Math.random() * 4);
         this.target = randomTargetsForGhosts[this.randomTargetIndex];
-        setInterval(() => {
-            this.changeRandomDirection();
-        }, 10000);
+        // Troca o alvo de patrulha a cada 10s contando quadros, sem setInterval
+        // (os intervalos antigos nunca eram limpos e se acumulavam a cada morte)
+        this.frames = 0;
     }
 
     isInRange() {
@@ -48,6 +48,8 @@ class Ghost {
     }
 
     moveProcess() {
+        this.frames++;
+        if (this.frames % (fps * 10) == 0) this.changeRandomDirection();
         if (this.isInRange()) {
             this.target = pacman;
         } else {
@@ -59,6 +61,7 @@ class Ghost {
             this.moveBackwards();
             return;
         }
+        wrapTunnel(this);
     }
 
     moveBackwards() {
@@ -147,7 +150,6 @@ class Ghost {
         } else {
             this.moveBackwards();
         }
-        console.log(this.direction);
     }
 
     calculateNewDirection(map, destX, destY) {
@@ -156,71 +158,48 @@ class Ghost {
             mp[i] = map[i].slice();
         }
 
-        let queue = [
-            {
-                x: this.getMapX(),
-                y: this.getMapY(),
-                rightX: this.getMapXRightSide(),
-                rightY: this.getMapYRightSide(),
-                moves: [],
-            },
-        ];
+        let start = { x: this.getMapX(), y: this.getMapY(), moves: [] };
+        let queue = [start];
+        mp[start.y][start.x] = 1;
         while (queue.length > 0) {
             let poped = queue.shift();
             if (poped.x == destX && poped.y == destY) {
                 return poped.moves[0];
-            } else {
-                mp[poped.y][poped.x] = 1;
-                let neighborList = this.addNeighbors(poped, mp);
-                for (let i = 0; i < neighborList.length; i++) {
-                    queue.push(neighborList[i]);
-                }
+            }
+            let neighborList = this.addNeighbors(poped, mp);
+            for (let i = 0; i < neighborList.length; i++) {
+                // Marca como visitado ao enfileirar, para não repetir a mesma casa
+                mp[neighborList[i].y][neighborList[i].x] = 1;
+                queue.push(neighborList[i]);
             }
         }
 
-        return 1; // direction
+        // Sem caminho até o alvo: mantém a direção atual
+        return undefined;
     }
 
     addNeighbors(poped, mp) {
         let queue = [];
         let numOfRows = mp.length;
         let numOfColumns = mp[0].length;
+        let steps = [
+            { dx: -1, dy: 0, direction: DIRECTION_LEFT },
+            { dx: 1, dy: 0, direction: DIRECTION_RIGHT },
+            { dx: 0, dy: -1, direction: DIRECTION_UP },
+            { dx: 0, dy: 1, direction: DIRECTION_BOTTOM },
+        ];
 
-        if (
-            poped.x - 1 >= 0 &&
-            poped.x - 1 < numOfRows &&
-            mp[poped.y][poped.x - 1] != 1
-        ) {
+        // Antes as colunas eram comparadas com o número de linhas (e vice-versa), o que
+        // deixava a última linha do labirinto inalcançável: fantasmas mirando os cantos
+        // de baixo não achavam caminho e ficavam presos na casa
+        for (let step of steps) {
+            let x = poped.x + step.dx;
+            let y = poped.y + step.dy;
+            if (x < 0 || x >= numOfColumns || y < 0 || y >= numOfRows) continue;
+            if (mp[y][x] == 1) continue;
             let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_LEFT);
-            queue.push({ x: poped.x - 1, y: poped.y, moves: tempMoves });
-        }
-        if (
-            poped.x + 1 >= 0 &&
-            poped.x + 1 < numOfRows &&
-            mp[poped.y][poped.x + 1] != 1
-        ) {
-            let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_RIGHT);
-            queue.push({ x: poped.x + 1, y: poped.y, moves: tempMoves });
-        }
-        if (
-            poped.y - 1 >= 0 &&
-            poped.y - 1 < numOfColumns &&
-            mp[poped.y - 1][poped.x] != 1
-        ) {
-            let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_UP);
-            queue.push({ x: poped.x, y: poped.y - 1, moves: tempMoves });
-        }
-        if (
-            poped.y + 1 >= 0 &&
-            poped.y + 1 < numOfColumns &&
-            mp[poped.y + 1][poped.x] != 1
-        ) {
-            let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_BOTTOM);
-            queue.push({ x: poped.x, y: poped.y + 1, moves: tempMoves });
+            tempMoves.push(step.direction);
+            queue.push({ x: x, y: y, moves: tempMoves });
         }
         return queue;
     }
@@ -264,16 +243,6 @@ class Ghost {
             this.height
         );
         canvasContext.restore();
-        canvasContext.beginPath();
-        canvasContext.strokeStyle = "red";
-        canvasContext.arc(
-            this.x + oneBlockSize / 2,
-            this.y + oneBlockSize / 2,
-            this.range * oneBlockSize,
-            0,
-            2 * Math.PI
-        );
-        canvasContext.stroke();
     }
 }
 

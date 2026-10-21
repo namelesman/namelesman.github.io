@@ -59,12 +59,22 @@
       const dx = t.clientX - touchStart.x;
       const dy = t.clientY - touchStart.y;
       touchStart = null;
+      // Na tela de fim de jogo, um toque começa outra partida
+      if (gameState !== "playing") {
+        resetGame();
+        return;
+      }
       if (Math.max(Math.abs(dx), Math.abs(dy)) < 20) return;
       if (Math.abs(dx) > Math.abs(dy)) {
         pacman.nextDirection = dx > 0 ? DIRECTION_RIGHT : DIRECTION_LEFT;
       } else {
         pacman.nextDirection = dy > 0 ? DIRECTION_BOTTOM : DIRECTION_UP;
       }
+    });
+
+    // Clique também reinicia no desktop
+    window.addEventListener("click", () => {
+      if (gameState !== "playing") resetGame();
     });
 
     window.focus();

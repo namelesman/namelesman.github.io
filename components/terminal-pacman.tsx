@@ -14,7 +14,7 @@ const BOOT_LINES = [
 const BOOT_LINE_DELAY_MS = 220
 
 export function TerminalPacman({ onExit }: { onExit: () => void }) {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [bootLine, setBootLine] = useState(0)
   const [run, setRun] = useState(0)
   const frameRef = useRef<HTMLIFrameElement>(null)
@@ -53,7 +53,7 @@ export function TerminalPacman({ onExit }: { onExit: () => void }) {
           <iframe
             key={run}
             ref={frameRef}
-            src="/pacman/index.html"
+            src={`/pacman/index.html?lang=${language}`}
             title="Pac-Man"
             className="terminal-game-screen"
             onLoad={focusGame}

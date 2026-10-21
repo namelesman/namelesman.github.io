@@ -60,6 +60,31 @@ let map = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 
+// Cópia do labirinto com as comidas, para poder jogar de novo depois de vencer ou perder
+const initialMap = map.map((row) => row.slice());
+
+// "playing" | "won" | "over"
+let gameState = "playing";
+
+// Textos do fim de jogo no idioma do portfólio (?lang=pt|en no endereço do iframe)
+const lang = new URLSearchParams(location.search).get("lang") == "en" ? "en" : "pt";
+const texts = {
+    pt: {
+        won: "VOCÊ VENCEU!",
+        over: "GAME OVER",
+        score: "Pontos: ",
+        again: "Enter ou toque para jogar de novo",
+        exit: "Esc para sair",
+    },
+    en: {
+        won: "YOU WIN!",
+        over: "GAME OVER",
+        score: "Score: ",
+        again: "Enter or tap to play again",
+        exit: "Esc to exit",
+    },
+}[lang];
+
 let randomTargetsForGhosts = [
     { x: 1 * oneBlockSize, y: 1 * oneBlockSize },
     { x: 1 * oneBlockSize, y: (map.length - 2) * oneBlockSize },
@@ -100,14 +125,39 @@ let restartPacmanAndGhosts = () => {
 
 let onGhostCollision = () => {
     lives--;
-    restartPacmanAndGhosts();
-    if (lives == 0) {
+    if (lives <= 0) {
+        lives = 0;
+        gameState = "over";
+        return;
     }
+    restartPacmanAndGhosts();
+};
+
+let hasFoodLeft = () => map.some((row) => row.includes(2));
+
+let resetGame = () => {
+    map = initialMap.map((row) => row.slice());
+    score = 0;
+    lives = 3;
+    gameState = "playing";
+    restartPacmanAndGhosts();
+};
+
+// Linha 10 tem passagem nas duas bordas: quem sai por um lado entra pelo outro
+let wrapTunnel = (entity) => {
+    let mapWidth = map[0].length * oneBlockSize;
+    if (entity.x < -oneBlockSize / 2) entity.x += mapWidth;
+    else if (entity.x > mapWidth - oneBlockSize / 2) entity.x -= mapWidth;
 };
 
 let update = () => {
+    if (gameState != "playing") return;
     pacman.moveProcess();
     pacman.eat();
+    if (!hasFoodLeft()) {
+        gameState = "won";
+        return;
+    }
     updateGhosts();
     if (pacman.checkGhostCollision(ghosts)) {
         onGhostCollision();
@@ -169,6 +219,25 @@ let draw = () => {
     pacman.draw();
     drawScore();
     drawRemainingLives();
+    if (gameState != "playing") drawEndScreen();
+};
+
+let drawEndScreen = () => {
+    let centerX = (map[0].length * oneBlockSize) / 2;
+    let centerY = (map.length * oneBlockSize) / 2;
+    canvasContext.fillStyle = "rgba(0, 0, 0, 0.75)";
+    canvasContext.fillRect(0, 0, canvas.width, map.length * oneBlockSize);
+    canvasContext.textAlign = "center";
+    canvasContext.fillStyle = gameState == "won" ? "#FFE600" : "#FF3B3B";
+    canvasContext.font = "bold 40px Emulogic, monospace";
+    canvasContext.fillText(gameState == "won" ? texts.won : texts.over, centerX, centerY - 30);
+    canvasContext.fillStyle = "white";
+    canvasContext.font = "20px Emulogic, monospace";
+    canvasContext.fillText(texts.score + score, centerX, centerY + 10);
+    canvasContext.font = "14px Emulogic, monospace";
+    canvasContext.fillText(texts.again, centerX, centerY + 50);
+    canvasContext.fillText(texts.exit, centerX, centerY + 72);
+    canvasContext.textAlign = "start";
 };
 
 let drawWalls = () => {
@@ -251,6 +320,10 @@ gameLoop();
 
 window.addEventListener("keydown", (event) => {
     let k = event.keyCode;
+    if (gameState != "playing") {
+        if (k == 13 || k == 32) resetGame(); // Enter ou espaço
+        return;
+    }
     setTimeout(() => {
         if (k == 37 || k == 65) {
             // left arrow or a

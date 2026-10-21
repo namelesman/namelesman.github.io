@@ -9,9 +9,8 @@ class Pacman {
         this.nextDirection = 4;
         this.frameCount = 7;
         this.currentFrame = 1;
-        setInterval(() => {
-            this.changeAnimation();
-        }, 100);
+        // Anima a boca a cada 3 quadros (~100ms a 30fps), sem setInterval acumulando a cada morte
+        this.frames = 0;
     }
 
     moveProcess() {
@@ -21,6 +20,7 @@ class Pacman {
             this.moveBackwards();
             return;
         }
+        wrapTunnel(this);
     }
 
     eat() {
@@ -146,6 +146,8 @@ class Pacman {
     }
 
     draw() {
+        this.frames++;
+        if (this.frames % 3 == 0) this.changeAnimation();
         canvasContext.save();
         canvasContext.translate(
             this.x + oneBlockSize / 2,
