@@ -28,7 +28,7 @@ export const PROJECTS: Project[] = [
     curiosity: "grandieselCuriosity",
     icon: "🚚",
     demo: "https://grandieselbr.netlify.app",
-    tech: ["Next", "TypeScript", "React", "Tailwind", "PostgreSQL", "Prisma", "Node", "Three.js", "Blender", "GitHub Actions"],
+    tech: ["Next", "TypeScript", "React", "Tailwind", "PostgreSQL", "Neon", "Prisma", "Node", "Three.js", "Blender", "GitHub Actions"],
   },
   {
     id: "usebro",
@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
     curiosity: "usebroCuriosity",
     icon: "👕",
     demo: "https://usebro-menswear.vercel.app",
-    tech: ["Next", "TypeScript", "React", "Tailwind", "PostgreSQL"],
+    tech: ["Next", "TypeScript", "React", "Tailwind", "PostgreSQL", "Neon", "Prisma"],
   },
   {
     id: "glaydstone",
