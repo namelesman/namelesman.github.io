@@ -1188,6 +1188,39 @@ html.light .theme-toggle-track {
 
 
 
+/* Celular em pé: o livro fica estreito e os chips quebram em mais linhas; compacta para as
+   skills continuarem acima das setas da página */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .skill-box {
+    gap: 0.5rem;
+  }
+
+  .skills-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .skills-content .content {
+    gap: 0.3rem;
+  }
+
+  .skills-content .content span {
+    gap: 0.25rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.3rem;
+    font-size: 0.82rem;
+  }
+
+  .skills-content .content span svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .skill-family {
+    gap: 0.2rem;
+    padding: 0.1rem;
+  }
+}
+
 /* Janela do projeto: centralizada na tela, sobre um fundo escurecido */
 .speechWindow {
   position: fixed;
