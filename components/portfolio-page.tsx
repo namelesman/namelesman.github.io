@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useLanguage } from "./language-provider";
 import ReactMarkdown from "react-markdown";
@@ -50,6 +50,7 @@ export function PortfolioPage() {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const popoverRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -68,22 +69,27 @@ export function PortfolioPage() {
 
   const activeProject = PROJECTS.find(p => p.id === selectedProject);
 
+  // Ao trocar de projeto, a janela volta para o topo
+  useEffect(() => {
+    popoverRef.current?.scrollTo({ top: 0 });
+  }, [selectedProject]);
+
   const popoverContent = activeProject ? (
-    <div className="speechWindow">
-      <div className="popover">
-        <button className="closePopover" onClick={() => setSelectedProject(null)}>
-          <i className="bx bx-x" />
-        </button>
-        <div className="popoverHeader">
-          <span className="icon" style={{ fontSize: "2rem" }}>{activeProject.icon}</span>
-          <div>
+    // Fundo escurecido cobrindo a tela; clicar fora da janela fecha
+    <div className="speechWindow" onClick={() => setSelectedProject(null)}>
+      <div className="popover" ref={popoverRef} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={t(activeProject.name)}>
+        {/* Barra fixa no topo: o botão de fechar acompanha a rolagem em READMEs longos */}
+        <div className="popoverBar">
+          <span className="icon">{activeProject.icon}</span>
+          <div className="popoverTitle">
             <h3 className="popoverName">{t(activeProject.name)}</h3>
-            <span className="tag" style={{ background: "var(--main-color)", color: "#000", padding: "0.15rem 0.6rem", borderRadius: "999px", fontSize: "0.78rem", fontWeight: "600" }}>
-              {t(activeProject.tag)}
-            </span>
+            <span className="popoverTag">{t(activeProject.tag)}</span>
           </div>
+          <button type="button" className="closePopover" onClick={() => setSelectedProject(null)} aria-label={t("closeWindow")}>
+            <i className="bx bx-x" />
+          </button>
         </div>
-        
+
         <p className="popoverDesc">
           {t(activeProject.desc)}
           <br /><br />

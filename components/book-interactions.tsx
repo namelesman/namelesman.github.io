@@ -80,13 +80,58 @@ export function BookInteractions() {
       if (target !== null) goToSheet(target, { updateHash: false })
     }
 
+    // O Chrome não rola sozinho áreas com overflow dentro das páginas 3D do livro (preserve-3d +
+    // translateZ): roda do mouse e dedo caem no elemento certo, mas o scrollTop não muda.
+    // Por isso a rolagem dessas áreas é feita aqui, à mão.
+    function scrollerFor(target: EventTarget | null) {
+      return target instanceof Element ? target.closest<HTMLElement>(".book .page-content") : null
+    }
+
+    function scrollBy(el: HTMLElement, delta: number) {
+      const max = el.scrollHeight - el.clientHeight
+      const next = Math.min(max, Math.max(0, el.scrollTop + delta))
+      if (next === el.scrollTop) return false
+      el.scrollTop = next
+      return true
+    }
+
+    function onWheel(e: WheelEvent) {
+      const el = scrollerFor(e.target)
+      if (!el || e.ctrlKey) return
+      const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? el.clientHeight : 1
+      if (scrollBy(el, e.deltaY * unit)) e.preventDefault()
+    }
+
+    let touch: { el: HTMLElement; y: number } | null = null
+    function onTouchStart(e: TouchEvent) {
+      const el = scrollerFor(e.target)
+      touch = el && e.touches.length === 1 ? { el, y: e.touches[0].clientY } : null
+    }
+    function onTouchMove(e: TouchEvent) {
+      if (!touch || e.touches.length !== 1) return
+      const y = e.touches[0].clientY
+      if (scrollBy(touch.el, touch.y - y)) e.preventDefault()
+      touch.y = y
+    }
+    function onTouchEnd() {
+      touch = null
+    }
+
     window.addEventListener("keydown", onKeyDown)
     window.addEventListener("hashchange", onHashChange)
+    document.addEventListener("wheel", onWheel, { passive: false })
+    document.addEventListener("touchstart", onTouchStart, { passive: true })
+    document.addEventListener("touchmove", onTouchMove, { passive: false })
+    document.addEventListener("touchend", onTouchEnd)
 
     return () => {
       timers.forEach(clearTimeout)
       window.removeEventListener("keydown", onKeyDown)
       window.removeEventListener("hashchange", onHashChange)
+      document.removeEventListener("wheel", onWheel)
+      document.removeEventListener("touchstart", onTouchStart)
+      document.removeEventListener("touchmove", onTouchMove)
+      document.removeEventListener("touchend", onTouchEnd)
     }
   }, [])
 
