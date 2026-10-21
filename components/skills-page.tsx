@@ -6,7 +6,7 @@ export function SkillsPage() {
   const { t } = useLanguage()
 
   return (
-    <div suppressHydrationWarning>
+    <div className="page-content" suppressHydrationWarning>
       <h1 className="tittle">{t("mySkills")}</h1>
       <div className="skill-box">
         {SKILL_GROUPS.map((group) => (
