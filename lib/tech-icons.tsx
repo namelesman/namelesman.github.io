@@ -4,7 +4,7 @@ import type { translations } from "./translations"
 // Ids de gradiente usam o prefixo "tech-<nome>-" para não colidir com outros SVGs da página.
 // Repetir o mesmo ícone é seguro: as definições com o mesmo id são idênticas.
 
-export type TechName = "JS" | "Next" | "React" | "Tailwind" | "TensorFlow" | "ML" | "Java" | "Python" | "Node" | "Nestjs" | "TypeScript" | "FastAPI" | "C/C++" | "PostgreSQL" | "MongoDB" | "MySQL" | "Git" | "Docker" | "Postman" | "MCP" | "TDD" | "GitHub Actions" | "Nginx" | "AWS" | "Oracle Cloud" | "Flask" | "Playwright" | "Docker Compose" | "Oracle DB" | "REST API" | "OAuth 2.0" | "OIDC" | "AIOrchestration" | "Prisma" | "Three.js" | "Blender"
+export type TechName = "JS" | "Next" | "React" | "Tailwind" | "TensorFlow" | "ML" | "Java" | "Python" | "Node" | "Nestjs" | "TypeScript" | "FastAPI" | "C/C++" | "PostgreSQL" | "MongoDB" | "MySQL" | "Git" | "Docker" | "Postman" | "MCP" | "TDD" | "GitHub Actions" | "Nginx" | "AWS" | "Oracle Cloud" | "Flask" | "Playwright" | "Docker Compose" | "Oracle DB" | "REST API" | "OAuth 2.0" | "OIDC" | "AIOrchestration" | "Prisma" | "Neon" | "Three.js" | "Blender"
 
 // Reaproveitados por mais de um item (Docker / Docker Compose, Oracle Cloud / Oracle DB)
 const DockerIcon = () => (
@@ -279,6 +279,12 @@ const ICONS: Record<TechName, () => ReactElement> = {
       <circle cx="4.5" cy="18.5" r="1.8"/>
       <circle cx="19.5" cy="18.5" r="1.8"/>
       <path d="M12 9V5.3M9.6 13.6 6 17.2M14.4 13.6 18 17.2"/>
+    </svg>
+  ),
+  // Neon (Simple Icons): Postgres serverless onde ficam os bancos dos projetos
+  Neon: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path fill="#00E599" d="M24 0V24l-9.365-8.045V24H0V0ZM2.942 21.087h8.751V9.563l9.365 8.204V2.919L2.942 2.914Z"/>
     </svg>
   ),
 }

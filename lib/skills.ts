@@ -12,7 +12,7 @@ export const SKILL_GROUPS: { title: keyof typeof translations["en"]; skills: Ski
     title: "backend",
     skills: [
       { base: ["Python"], uses: ["Flask", "FastAPI"] },
-      { base: ["Node"], uses: ["Nestjs", "Prisma"] },
+      { base: ["Node"], uses: ["Nestjs"] },
       { base: ["Java"], uses: [] },
       { base: ["C/C++"], uses: [] },
       "REST API",
@@ -20,7 +20,7 @@ export const SKILL_GROUPS: { title: keyof typeof translations["en"]; skills: Ski
       "OIDC",
     ],
   },
-  { title: "database", skills: ["PostgreSQL", "MongoDB", "MySQL", "Oracle DB"] },
+  { title: "database", skills: [{ base: ["PostgreSQL"], uses: ["Neon", "Prisma"] }, "MongoDB", "MySQL", "Oracle DB"] },
   {
     title: "devopsAi",
     skills: [
